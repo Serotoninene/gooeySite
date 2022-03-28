@@ -25,12 +25,11 @@ a {
 }
 
 .App {
-  background-color: salmon;
-  min-width: 100vw;
+  width: 100%;
   min-height: 100vh;
+  background-color: rgb(34, 41, 66);
 }
 
 canvas {
-  width: 100vw;
   height: 100vh;
 }
