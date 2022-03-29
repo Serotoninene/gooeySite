@@ -11,6 +11,12 @@
   list-style: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: "MonumentExtended";
+}
+
+body {
+  background-color: rgb(21, 29, 34);
+  color: rgb(240, 230, 230);
 }
 
 a {
@@ -22,4 +28,14 @@ a {
   color: inherit;
   font-family: inherit;
   cursor: pointer;
+}
+
+h1 {
+  font-size: 5rem;
+  line-height: 6.5rem;
+}
+
+h2 {
+  font-size: 4rem;
+  line-height: 5rem;
 }

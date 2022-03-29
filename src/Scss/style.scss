@@ -3,11 +3,15 @@
 @import "./Setup/variables";
 @import "./Setup/utils";
 @import "./Setup/base";
+@import "./Setup/locomotiveScroll";
 // Pages
 
 // Frames
-
+@import "./Pages/App";
 // Components
+@import "./Components/herobanner";
+@import "./Components/presentation";
+@import "./Components/skills";
 
 // React-var-gui
 @import "/node_modules/react-dat-gui/dist/index.css";
