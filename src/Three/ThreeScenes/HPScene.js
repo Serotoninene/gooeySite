@@ -9,7 +9,7 @@ import { ScrollTrigger } from "gsap/all";
 import DistortedSphere from "../ThreeElements/DistortedSphere";
 import BackgroundSphere from "../ThreeElements/BackgroundSphere";
 
-export default function HPScene() {
+export default function HPScene(props) {
   const secondMeshRef = useRef();
   const { camera } = useThree();
   camera.lookAt(2, 2, 0);
@@ -22,11 +22,11 @@ export default function HPScene() {
 
   return (
     <>
-      <OrbitControls enableZoom={false} />
+      <OrbitControls enableZoom={true} />
       <ambientLight intensity={1} />
       <directionalLight color="white" position={[5, 5, 5]} />
-      {/* <DistortedSphere /> */}
-      <BackgroundSphere />
+      <DistortedSphere {...props} />
+      <BackgroundSphere {...props} />
     </>
   );
 }

@@ -23,7 +23,7 @@ export default function Presentation() {
         start: "top center",
         end: "bottom bottom",
         id: "Presentation",
-        toggleActions: "play none none reverse",
+        toggleActions: "play none none none",
       },
     });
 
@@ -36,23 +36,7 @@ export default function Presentation() {
       },
       {
         yPercent: 0,
-        stagger: 0.01,
-      }
-    );
-
-    gsap.fromTo(
-      presWords,
-      { yPercent: 0 },
-      {
-        yPercent: -200,
-        stagger: 0.01,
-        scrollTrigger: {
-          trigger: "#Presentation",
-          start: "bottom bottom",
-          end: "top+=6% top",
-          id: "Presentation leaving",
-          scrub: 1,
-        },
+        stagger: 0.05,
       }
     );
   }, []);

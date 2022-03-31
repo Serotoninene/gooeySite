@@ -4,9 +4,9 @@ varying vec2 vUv;
 varying vec3 vPosition;
 
 uniform float uTime;  
-uniform float uProgress;
-uniform sampler2D texture1;
-uniform vec4 resolution;
+uniform vec3 uColor1;
+uniform vec3 uColor2;
+uniform vec3 uColor3;
 
 float PI = 3.14159265359;
 
@@ -53,10 +53,10 @@ mat2 rotate2D(float angle){
 
 void main() {
   float n = noise(vPosition + uTime/3.);
-  vec3 color1 =  vec3(0.47,0.62,0.47);
-  vec3 color2 =  vec3(0.0,0.,0.);
-  vec3 color3 =  vec3(0.88,0.58,0.26);
-  // vec3 color4 = vec3(0.91, 0.79, 0.29);
+  vec3 color1 =  uColor3;
+  vec3 color2 =  uColor2;
+  // vec3 color3 =  vec3(0.88,0.58,0.26);
+  vec3 color3 = uColor1;
 
   vec2 baseUV = rotate2D(n) * vPosition.xy * 0.1;
   float basePattern = lines(baseUV, 0.1);

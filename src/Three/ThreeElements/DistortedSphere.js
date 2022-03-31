@@ -2,107 +2,101 @@ import React, { useEffect, useRef } from "react";
 // Three
 import * as THREE from "three";
 import { useThree, useFrame } from "@react-three/fiber";
-import { MeshDistortMaterial, Tetrahedron } from "@react-three/drei";
+import { CubeCamera, MeshDistortMaterial } from "@react-three/drei";
+// Shaders
+import vertex from "../Shaders/distortShader/vertex.glsl";
+import fragment from "../Shaders/distortShader/fragment.glsl";
 // Gsap
 import gsap, { Power0, Power3 } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 
-export default function DistortedSphere() {
-  const meshMaterialRef = useRef();
-  const secondMeshRef = useRef();
+export default function DistortedSphere(props) {
+  const { data } = props;
   const meshRef = useRef();
-  let opts = {
-    distortion: 0,
+  const sphereShaderRef = useRef();
+
+  let animatedValues = {
+    uDistortionFrequency: 0.0,
   };
+  const foo = { bar: 0 };
 
   const { camera } = useThree();
   camera.lookAt(2, 2, 0);
 
+  useFrame(({ clock }) => {
+    sphereShaderRef.current.uniforms.uTime.value = clock.getElapsedTime();
+  });
+
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-    console.log(meshRef.current);
 
     let tl = gsap.timeline({
       scrollTrigger: {
-        trigger: "#Herobanner",
+        trigger: "#MainContainer",
         id: "3D Timeline",
         start: "top top",
-        endTrigger: "#Presentation",
         end: "bottom bottom",
         scrub: true,
       },
     });
-
-    tl.to(meshMaterialRef.current._distort, {
-      value: 1,
-      ease: Power0.ease,
-    });
-    tl.to(meshMaterialRef.current.color, {
-      r: 0.6,
-      g: 0.2,
-      b: 0.8,
-      ease: Power0.ease,
-    });
-
-    // console.log(camera);
-    gsap.to(meshRef.current.position, {
+    tl.to(meshRef.current.position, {
       x: 2.5,
       y: 0,
-      scrollTrigger: {
-        trigger: "#Herobanner",
-        start: "center top",
-        toggleActions: "play resume none reverse",
-      },
+      z: -2.5,
     });
 
-    let skillsTL = gsap.timeline({
-      scrollTrigger: {
-        trigger: "#Skills",
-        start: "top-=10% top",
-        id: "Skills 3D",
-        toggleActions: "play none none reverse",
+    tl.to(sphereShaderRef.current.uniforms.uDistortionFrequency, {
+      value: 1.5,
+      ease: Power3.easeIn,
+      onUpdate: () => {
+        console.log(sphereShaderRef.current.uniforms.uDistortionFrequency);
       },
     });
-
-    // gsap.to(meshRef.current.position, {
-    //   x: -2.5,
-    //   z: -1.5,
-    //   scrollTrigger: {
-    //     trigger: "#Skills",
-    //     start: "center top",
-    //     end: "bottom bottom",
-    //     scrub: 1,
-    //     markers: true,
-    //   },
-    // });
-
-    // skillsTL.to(meshMaterialRef.current._distort, {
-    //   value: 0,
-    // });
-    // skillsTL.to(
-    //   meshRef.current.scale,
-    //   {
-    //     x: 8,
-    //     y: 8,
-    //     z: 8,
-    //     duration: 0.5,
-    //     ease: Power3.easeOut,
-    //   },
-    //   ">0.5"
-    // );
   }, []);
 
+  useFrame(() => {});
+
   return (
-    <mesh ref={meshRef}>
+    <CubeCamera args={[0.1, 100, 512]}>
+      {(texture) => (
+        <mesh position={[0, 0, 0]} ref={meshRef}>
+          <sphereBufferGeometry args={[2, 64, 64]} />
+          <shaderMaterial
+            ref={sphereShaderRef}
+            args={[
+              {
+                uniforms: {
+                  uCube: { value: texture },
+                  uTime: { value: 0 },
+                  uDistortionIntensity: { value: data.uDistortionIntensity },
+                  uDistortionSpeed: { value: data.uDistortionSpeed },
+                  uDistortionFrequency: {
+                    value: 0.3,
+                  },
+                },
+                vertexShader: vertex,
+                fragmentShader: fragment,
+              },
+            ]}
+            uniformsNeedUpdate={true}
+            side={THREE.DoubleSide}
+          />
+        </mesh>
+      )}
+    </CubeCamera>
+  );
+}
+
+{
+  /* <mesh ref={meshRef}>
       <sphereBufferGeometry args={[2.5, 64, 64]} />
       <MeshDistortMaterial
         ref={meshMaterialRef}
         attach="material"
         distort={opts.distortion}
         speed={2}
-        color={new THREE.Color("#161B33")}
+        color={new THREE.Color("#0D110D")}
         side={THREE.DoubleSide}
       />
-    </mesh>
-  );
+    </mesh> */
 }

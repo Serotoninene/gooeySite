@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, Suspense } from "react";
+import { useEffect, useContext, useRef, useState, Suspense } from "react";
 // Gsap
 import gsap, { Power4 } from "gsap";
 import { ScrollTrigger } from "gsap/all";
@@ -7,6 +7,7 @@ import splitLines from "../Utilitaries/Tools/splitLines";
 
 export default function () {
   const heroTextRef = useRef();
+
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     const heroTL = gsap.timeline();
@@ -24,24 +25,24 @@ export default function () {
 
     heroTL.to(heroWords, {
       yPercent: 0,
-      stagger: 0.1,
+      stagger: 0.05,
       delay: 1,
     });
 
-    gsap.to(
-      heroWords,
-      // { yPercent: 0 },
-      {
-        yPercent: -1000,
-        stagger: 0.05,
-        scrollTrigger: {
-          trigger: "#Herobanner",
-          start: "top+=20% top",
-          id: "Herobanner leaving",
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
+    // gsap.to(
+    //   heroWords,
+    //   // { yPercent: 0 },
+    //   {
+    //     yPercent: -1000,
+    //     stagger: 0.1,
+    //     scrollTrigger: {
+    //       trigger: "#Herobanner",
+    //       start: "top+=20% top",
+    //       id: "Herobanner leaving",
+    //       toggleActions: "play none none reverse",
+    //     },
+    //   }
+    // );
   }, []);
 
   return (
