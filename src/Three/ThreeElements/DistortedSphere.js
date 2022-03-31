@@ -2,26 +2,18 @@ import React, { useEffect, useRef } from "react";
 // Three
 import * as THREE from "three";
 import { useThree, useFrame } from "@react-three/fiber";
-import { CubeCamera, MeshDistortMaterial } from "@react-three/drei";
+import { CubeCamera } from "@react-three/drei";
 // Shaders
 import vertex from "../Shaders/distortShader/vertex.glsl";
 import fragment from "../Shaders/distortShader/fragment.glsl";
 // Gsap
-import gsap, { Power0, Power3 } from "gsap";
+import gsap, { Power3 } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 
 export default function DistortedSphere(props) {
   const { data } = props;
   const meshRef = useRef();
   const sphereShaderRef = useRef();
-
-  let animatedValues = {
-    uDistortionFrequency: 0.0,
-  };
-  const foo = { bar: 0 };
-
-  const { camera } = useThree();
-  camera.lookAt(2, 2, 0);
 
   useFrame(({ clock }) => {
     sphereShaderRef.current.uniforms.uTime.value = clock.getElapsedTime();
@@ -39,6 +31,7 @@ export default function DistortedSphere(props) {
         scrub: true,
       },
     });
+
     tl.to(meshRef.current.position, {
       x: 2.5,
       y: 0,
@@ -71,7 +64,7 @@ export default function DistortedSphere(props) {
                   uDistortionIntensity: { value: data.uDistortionIntensity },
                   uDistortionSpeed: { value: data.uDistortionSpeed },
                   uDistortionFrequency: {
-                    value: 0.3,
+                    value: 0.0,
                   },
                 },
                 vertexShader: vertex,
