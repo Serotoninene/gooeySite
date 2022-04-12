@@ -1,53 +1,61 @@
 import { useEffect, useRef, useState } from "react";
+// Gsap
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
 // Components
 import CanvasContainer from "./Three/ThreeElements/CanvasContainer";
 import HPScene from "./Three/ThreeScenes/HPScene";
-import Herobanner from "./Components/Herobanner";
-import Presentation from "./Components/Presentation";
-import SelectedWorks from "./Components/SelectedWorks";
+import Navbar from "./Components/Navbar";
+import Homepage from "./Pages/Homepage";
+import About from "./Pages/About";
+import Loading from "./Components/Loading";
 // Styling
 import "./Scss/style.scss";
 import DatUi from "./Components/DatUi";
+import { AnimatePresence, motion } from "framer-motion";
 
 function App() {
   const [loading, setLoading] = useState(false);
-  const heroTextRef = useRef();
-  const presentationTextRef = useRef();
 
   // Data for the debugUi mothafucka
   const [data, setData] = useState({
-    uColor1: "#1f4152",
-    uColor2: "#864343",
-    uColor3: "#69a851",
+    uColor1: "#3D6488",
+    uColor2: "#BE8888",
+    uColor3: "#283737",
     uDistortionIntensity: 0.8,
     uDistortionSpeed: 0.1,
     uDistortionFrequency: 0.1,
   });
 
   useEffect(() => {
-    // Loading
-    // setInterval(() => {
-    //   setLoading(false);
-    // }, 1000);
+    setInterval(() => {
+      setLoading(false);
+    }, 500);
+
+    gsap.registerPlugin(ScrollTrigger);
   }, []);
 
   return (
     <>
-      {loading ? (
-        <h1> Loading </h1>
-      ) : (
-        <>
-          <CanvasContainer>
-            <HPScene data={data} />
-          </CanvasContainer>
-          <div id="MainContainer">
-            <Herobanner />
-            <Presentation />
-            <SelectedWorks />
-          </div>
-          <DatUi data={data} setData={setData} />
-        </>
-      )}
+      <AnimatePresence>
+        {loading ? (
+          <motion.div key="loader">
+            <Loading loading={loading} setLoading={setLoading} />
+          </motion.div>
+        ) : (
+          <>
+            <CanvasContainer>
+              <HPScene data={data} />
+            </CanvasContainer>
+            <DatUi data={data} setData={setData} />
+            <div id="MainContainer">
+              <Navbar loading={loading} />
+              <Homepage data={data} key="1" path="/" />
+              <About data={data} key="2" path="/about" />
+            </div>
+          </>
+        )}
+      </AnimatePresence>
     </>
   );
 }

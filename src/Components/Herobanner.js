@@ -9,8 +9,13 @@ export default function () {
   const heroTextRef = useRef();
 
   useEffect(() => {
+    console.log(heroTextRef.current);
     gsap.registerPlugin(ScrollTrigger);
-    const heroTL = gsap.timeline();
+    const heroTL = gsap.timeline({
+      paused: true,
+    });
+
+    heroTL.play();
 
     // Fragment the title into letters
     splitLines(
@@ -20,39 +25,22 @@ export default function () {
       "heroWords"
     );
 
-    const heroWords = gsap.utils.toArray(".heroWords");
-    heroTL.set(heroWords, { yPercent: 200 });
+    const heroWords = gsap.utils.toArray("#Herobanner .heroWords");
+    heroTL.set(heroWords, {
+      yPercent: 200,
+    });
 
     heroTL.to(heroWords, {
       yPercent: 0,
       stagger: 0.05,
       delay: 1,
     });
-
-    // gsap.to(
-    //   heroWords,
-    //   // { yPercent: 0 },
-    //   {
-    //     yPercent: -1000,
-    //     stagger: 0.1,
-    //     scrollTrigger: {
-    //       trigger: "#Herobanner",
-    //       start: "top+=20% top",
-    //       id: "Herobanner leaving",
-    //       toggleActions: "play none none reverse",
-    //     },
-    //   }
-    // );
   }, []);
 
   return (
-    <div id="Herobanner">
-      <div
-        id="Herobanner"
-        className="flex justify-center align-center"
-        data-scroll
-      >
-        <h1 ref={heroTextRef}>Lorem, Maxi Ipsum lorem</h1>
+    <div>
+      <div id="Herobanner" className="flex justify-center align-center">
+        <h1 ref={heroTextRef}> Lorem, Maxi Ipsum lorem </h1>
       </div>
     </div>
   );

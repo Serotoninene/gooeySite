@@ -1,0 +1,40 @@
+#Navbar {
+  height: 80px;
+  z-index: 10;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: 10px 100px;
+
+  .logoContainer {
+    width: 7px;
+    transform: translate(0, -80px);
+    img {
+      width: 100%;
+    }
+  }
+
+  .navLinks {
+    font-family: "Futura Bk";
+    font-size: 1.1rem;
+
+    .navLink {
+      cursor: pointer;
+      font-family: "Futura Bk";
+      font-size: 1.1rem;
+      margin-left: 70px;
+      transform: translate(0, -80px);
+    }
+  }
+}
+
+/* Add the blur effect */
+.blur {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  opacity: 0.5;
+  top: -70px;
+  left: 0;
+  height: 80px;
+  width: 100%;
+}

@@ -5,15 +5,19 @@
 @import "./Setup/base";
 @import "./Setup/locomotiveScroll";
 // Pages
+@import "./Pages/App";
+@import "./Pages/Homepage";
+@import "./Pages/About";
 
 // Frames
-@import "./Pages/App";
 // Components
 @import "./Components/herobanner";
 @import "./Components/presentation";
 @import "./Components/skills";
 @import "./Components/selectedWorks";
 @import "./Components/project";
+@import "./Components/navbar";
+@import "./Components/loading";
 
 // React-var-gui
 @import "/node_modules/react-dat-gui/dist/index.css";

@@ -27,7 +27,7 @@ export default function Presentation() {
       },
     });
 
-    const presWords = gsap.utils.toArray(".presWords");
+    const presWords = gsap.utils.toArray("#Presentation .presWords");
 
     presTL.fromTo(
       presWords,

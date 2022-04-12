@@ -4,19 +4,18 @@ import * as THREE from "three";
 // Shaders
 import vertex from "./vertex.glsl";
 import fragment from "./fragment.glsl";
-// GSap
-import * as THREE from "three";
 
 export default class DistortedMaterial extends THREE.ShaderMaterial {
   constructor() {
     super({
       uniforms: {
-        uCube: { value: texture },
-        uTime: { value: 0 },
-        uDistortionIntensity: { value: 0.0 },
-        uDistortionSpeed: { value: 0.0 },
+        uTexture: { value: new THREE.CubeTexture() },
+        uCube: { value: null },
+        uTime: { value: 2 },
+        uDistortionIntensity: { value: 0.3 },
+        uDistortionSpeed: { value: 0.3 },
         uDistortionFrequency: {
-          value: uniforms,
+          value: 0.2,
         },
       },
       vertexShader: vertex,
@@ -29,7 +28,7 @@ export default class DistortedMaterial extends THREE.ShaderMaterial {
   }
 
   set time(v) {
-    this.uniforms.uTime = v;
+    this.uniforms.uTime.value = v;
   }
 
   get distortionFrequency() {
@@ -37,17 +36,31 @@ export default class DistortedMaterial extends THREE.ShaderMaterial {
   }
 
   set distortionFrequency(v) {
-    this.uniforms.uDistortionFrequency = v;
+    this.uniforms.uDistortionIntensity.value = v;
+  }
+
+  get distortionIntensity() {
+    return this.uniforms.uDistortionIntensity.value;
+  }
+
+  set distortionIntensity(v) {
+    this.uniforms.uDistortionFrequency.value = v;
+  }
+
+  get distortionSpeed() {
+    return this.uniforms.uDistortionSpeed.value;
+  }
+
+  set distortionSpeed(v) {
+    this.uniforms.uDistortionSpeed.value = v;
   }
 
   get texture() {
-    return this.uniforms.uTexture;
+    return this.uniforms.uTexture.value;
   }
 
   set texture(v) {
-    this.uniforms.uTexture = v;
+    this.uniforms.uTexture.value = v;
   }
 }
-extend({
-  DistortedMaterial,
-});
+extend({ DistortedMaterial });

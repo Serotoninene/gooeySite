@@ -1,0 +1,17 @@
+#Loading {
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  left: 0;
+
+  .logoContainer {
+    width: 55px;
+  }
+
+  .loadingTypo {
+    width: 350px;
+    top: calc(50vh - 175px);
+    left: calc(50vw - 175px);
+    opacity: 0;
+  }
+}

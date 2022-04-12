@@ -1,0 +1,29 @@
+#Homepage {
+  .Logobanner {
+    height: 100vh;
+  }
+
+  .ImgWrapped {
+    min-height: 100vh;
+    .ImgContainer {
+      width: 25vw;
+      height: 25vh;
+      left: calc(50vw - 12.5vw);
+      background-color: lightblue;
+    }
+  }
+
+  canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+}
+
+.CanvasContainer {
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  left: 0;
+  // z-index: ;
+}
