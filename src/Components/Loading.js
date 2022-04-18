@@ -33,34 +33,33 @@ export default function Loading(props) {
     });
   }, []);
   return (
-    <AnimatePresence>
-      <div>
-        <motion.div
-          id="Loading"
-          className="flex hidden justify-center align-center fixed"
-          initial={{
-            opacity: 0,
-          }}
-          animate={{
-            opacity: 1,
-          }}
-          exit={{
-            opacity: 0,
-          }}
-          transition={{
-            duration: 0.5,
-          }}
-        >
-          <div className="flex justify-center align-center ">
-            <div className="logoContainer">
-              <img src={logo} alt="alex's logo" className="img-fluid" />
-            </div>
-            <div ref={typoRef} className="loadingTypo fixed">
-              <img src={loadingTypo} alt="Loading" />
-            </div>
+    <div>
+      <motion.div
+        id="Loading"
+        className="flex hidden justify-center align-center fixed"
+        initial={{
+          opacity: 0,
+        }}
+        animate={{
+          opacity: 1,
+        }}
+        exit={{
+          opacity: 0,
+          scale: 0,
+        }}
+        transition={{
+          duration: 0.5,
+        }}
+      >
+        <div className="flex justify-center align-center ">
+          <div className="logoContainer">
+            <img src={logo} alt="alex's logo" className="img-fluid" />
           </div>
-        </motion.div>
-      </div>
-    </AnimatePresence>
+          <div ref={typoRef} className="loadingTypo fixed">
+            <img src={loadingTypo} alt="Loading" />
+          </div>
+        </div>
+      </motion.div>
+    </div>
   );
 }

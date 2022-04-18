@@ -1,0 +1,65 @@
+#Contact {
+  .contactContainer {
+    margin-top: 20vh;
+    padding: 25px 50px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.702);
+    // backdrop-filter: blur(45px);
+    // -webkit-backdrop-filter: blur(45px);
+    border-radius: 25px 25px 0 0;
+    color: #1e124d;
+  }
+
+  form {
+    input,
+    textarea,
+    button {
+      border-radius: 7px;
+      min-height: 30px;
+      outline: none;
+      border: none;
+      padding: 0 20px;
+    }
+
+    textarea {
+      padding: 20px 20px;
+      resize: none;
+      font-size: 1.5rem;
+    }
+
+    input,
+    textarea {
+      font-family: "Futura Bk";
+    }
+
+    label {
+      margin: 15px 0 7px 0;
+    }
+
+    button {
+      margin-top: 15px;
+      cursor: pointer;
+      background-color: #1e124d;
+      color: white;
+      padding: 5px 10px;
+    }
+  }
+
+  @media screen and (max-width: 772px) {
+    h2 {
+      font-size: 3rem;
+      line-height: 4rem;
+    }
+  }
+
+  @media screen and (max-width: 590px) {
+    h2 {
+      font-size: 2rem;
+      line-height: 3rem;
+    }
+
+    label {
+      font-size: 0.8rem;
+    }
+  }
+}

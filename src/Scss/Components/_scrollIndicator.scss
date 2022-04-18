@@ -1,0 +1,16 @@
+#ScrollIndicator {
+  bottom: 30px;
+  right: 20px;
+
+  p span {
+    font-family: "Futura Bk";
+    margin-bottom: 2px;
+  }
+
+  .scrollLine {
+    width: 1px;
+    height: 50px;
+    border-radius: 12px;
+    background-color: white;
+  }
+}

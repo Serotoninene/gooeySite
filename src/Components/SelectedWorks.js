@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 // Component
 import Project from "./Project";
-import AnimatedLetters from "./AnimatedLetters";
+import AnimatedWords from "../Components/AnimatedWords";
 // Assets
 import eliott from "../Assets/Images/eliott.jpg";
 import fenetre from "../Assets/Images/fenetre.jpg";
@@ -14,38 +14,34 @@ export default function SelectedWorks() {
   return (
     <div id="SelectedWorks">
       <h2>
-        <AnimatedLetters
-          title={"Selected"}
-          trigger={"#SelectedWorks"}
-          startTrigger="70%"
-        />{" "}
-        <AnimatedLetters
-          title={"Work"}
-          trigger={"#SelectedWorks"}
-          startTrigger="70%"
+        <AnimatedWords
+          text="Selected Works"
+          trigger="#SelectedWorks"
+          startTrigger="80%"
         />
       </h2>
       <Project
         i={0}
         img={tienot}
-        title="tienot_no_aware"
+        title1="tienot_no"
+        title2="_aware"
         url="http://tienotnoaware.fr/"
+        titleColor="#f5e1e1"
       />
-
       <Project
         i={1}
         img={serotoninene}
-        title="Serotoninene"
+        title1="Serotoninene"
         url="http://serotoninene.alexandrepujol.com/"
-        colors={{
-          color1: "test",
-        }}
+        titleColor="#f5e1e1"
       />
       <Project
         i={2}
         img={perceptImagery}
-        title="Percept Imagery"
+        title1="Percept"
+        title2="Imagery"
         url="http://perceptimagery.alexandrepujol.com/"
+        titleColor="#f5e1e1"
       />
     </div>
   );

@@ -1,16 +1,27 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 // Gsap
 import gsap, { Power1 } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 // Component
 import AnimatedLetters from "./AnimatedLetters";
 import "../Scss/style.scss";
+// Utils
+import useWindowSize from "../Utilitaries/Hooks/useWindowSize";
 
 export default function Project(props) {
+  const { i, img, title1, title2, url, titleColor } = props;
+  const [phoneFormat, setPhoneFormat] = useState(true);
+
   const projectRef = useRef();
   const imgRef = useRef();
+  const titleRef = useRef();
   const imgContainerRef = useRef();
-  const { i, img, title, url } = props;
+
+  const { width } = useWindowSize();
+
+  useEffect(() => {
+    width < 576 ? setPhoneFormat(true) : setPhoneFormat(false);
+  }, [width]);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -19,6 +30,7 @@ export default function Project(props) {
       scrollTrigger: {
         trigger: projectRef.current,
         start: "top bottom",
+        end: "bottom center",
         id: `.project${i}`,
         toggleActions: "play none none reverse",
       },
@@ -48,16 +60,38 @@ export default function Project(props) {
       },
       "<"
     );
+    tl.to(titleRef.current, {
+      color: titleColor,
+      duration: 0.2,
+    });
   }, []);
+
   return (
-    <div ref={projectRef} className={`Project flex relative project${i}`}>
-      <h2 className="projectTitle absolute">
-        <AnimatedLetters
-          title={title}
-          trigger={`.project${i}`}
-          startTrigger="70%"
-        />
-      </h2>
+    <div
+      ref={projectRef}
+      className={`Project ${
+        phoneFormat ? "" : "flex"
+      } justify-between project${i}`}
+    >
+      <div className="titleContainer ">
+        <h2 ref={titleRef} className={`projectTitle`}>
+          <AnimatedLetters
+            title={title1}
+            trigger={`.project${i}`}
+            startTrigger="70%"
+          />
+          {title2 && (
+            <span>
+              <br />
+              <AnimatedLetters
+                title={title2}
+                trigger={`.project${i}`}
+                startTrigger="70%"
+              />
+            </span>
+          )}
+        </h2>
+      </div>
       <a href={url}>
         <div ref={imgContainerRef} className="projectPicture">
           <img ref={imgRef} src={img} className={`img-fluid img${i}`}></img>

@@ -1,10 +1,15 @@
 #Navbar {
-  height: 80px;
+  height: 70px;
   z-index: 10;
   width: 100%;
   top: 0;
   left: 0;
   padding: 10px 100px;
+  transition: backdrop-filter ease-out 0.5s;
+
+  .navbarContainer {
+    height: 100%;
+  }
 
   .logoContainer {
     width: 7px;
@@ -24,17 +29,35 @@
       font-size: 1.1rem;
       margin-left: 70px;
       transform: translate(0, -80px);
+      transition: font-weight ease-in 0.1s;
+
+      &:hover {
+        font-weight: bold;
+        color: #f5e1e1;
+      }
     }
   }
 }
 
-/* Add the blur effect */
-.blur {
+#Navbar:hover {
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  opacity: 0.5;
+}
+
+/* Add the blur effect */
+.blur {
+  opacity: 1;
   top: -70px;
   left: 0;
   height: 80px;
   width: 100%;
+}
+
+@media screen and (min-width: 1900px) {
+  #Navbar {
+    .navbarContainer {
+      width: 1700px;
+      margin: 0 auto;
+    }
+  }
 }

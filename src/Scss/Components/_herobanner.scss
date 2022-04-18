@@ -1,4 +1,46 @@
 #Herobanner {
   min-height: 100vh;
   padding: 100px;
+
+  h1 {
+    line-height: 7rem;
+
+    @media screen and (min-width: 1440px) {
+      font-size: 7rem;
+      line-height: 8rem;
+    }
+
+    @media screen and (max-width: 1170px) {
+      font-size: 4rem;
+      line-height: 5.5rem;
+    }
+
+    @media screen and (max-width: 950px) {
+      font-size: 3.5rem;
+      line-height: 4.5rem;
+    }
+
+    @media screen and (max-width: 830px) {
+      font-size: 3rem;
+      line-height: 4rem;
+    }
+
+    @media screen and (max-width: 642px) {
+      font-size: 2.5rem;
+      line-height: 3.5rem;
+    }
+
+    @media screen and (max-width: 520px) {
+      font-size: 2rem;
+      line-height: 3rem;
+    }
+
+    @media screen and (max-width: 450px) {
+      font-size: 1.7rem;
+      line-height: 2.5rem;
+    }
+  }
+  @media screen and (max-width: 775px) {
+    padding: 50px;
+  }
 }

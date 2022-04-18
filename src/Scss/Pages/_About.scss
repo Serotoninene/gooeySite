@@ -1,20 +1,152 @@
 #About {
   height: 100vh;
-  padding-bottom: 70px;
+  box-sizing: border-box;
+  overflow: hidden;
+  margin: 0 100px;
 
   .picture {
-    width: 130px;
     height: 130px;
+    width: 130px;
+    bottom: 0;
     overflow: hidden;
     transform: translate(2px, 0), rotate(20);
   }
 
   .textContainer {
     height: 65vh;
-    margin-top: 70px;
   }
 
   .bottomParagraphContainer {
-    bottom: -100px;
+    margin: 50px 0 20px 0;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  #About {
+    .picture {
+      width: 150px;
+      height: 150px;
+    }
+    .textContainer h2 {
+      font-size: 5.5rem;
+      line-height: 7rem;
+    }
+
+    .bottomParagraphContainer {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1700px) {
+  #About {
+    .picture {
+      width: 200px;
+      height: 200px;
+    }
+
+    .textContainer h2 {
+      font-size: 6.5rem;
+      line-height: 8rem;
+    }
+
+    .bottomParagraphContainer {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1900px) {
+  #About {
+    width: 1700px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  #About {
+    .textContainer h2 {
+      font-size: 3.5rem;
+    }
+    .picture {
+      width: 110px;
+      height: 110px;
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  #About {
+    .textContainer {
+      height: 55%;
+      h2 {
+        font-size: 3rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 845px) {
+  #About {
+    .textContainer h2 {
+      font-size: 2.5rem;
+    }
+    .picture {
+      width: 90px;
+      height: 90px;
+    }
+  }
+}
+
+@media screen and (max-width: 775px) {
+  #About {
+    height: 86vh;
+    margin: 100px 75px 50px 75px;
+    overflow: hidden;
+
+    .bottomParagraphContainer {
+      // font-size: 1.5rem;
+    }
+  }
+}
+
+@media screen and (max-width: 605px) {
+  #About {
+    h2 {
+      font-size: 2.7rem;
+    }
+  }
+}
+
+@media screen and (max-width: 510px) {
+  #About {
+    h2 {
+      font-size: 2.3rem;
+      line-height: 3.5rem;
+    }
+  }
+}
+
+@media screen and (max-width: 475px) {
+  #About {
+    h2 {
+      font-size: 2.1rem;
+      line-height: 3.3rem;
+    }
+    .bottomParagraphContainer p {
+      font-size: 1rem;
+    }
+  }
+}
+
+@media screen and (max-width: 376px) {
+  #About {
+    h2 {
+      font-size: 1.7rem;
+      line-height: 2.7rem;
+    }
+    .bottomParagraphContainer p {
+      font-size: 0.8rem;
+    }
   }
 }

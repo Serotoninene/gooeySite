@@ -1,15 +1,9 @@
 import React, { useEffect, useRef } from "react";
-// Framer motion
+// gsap
 import gsap, { Power3 } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 
-const AnimatedLetters = ({
-  title,
-  trigger,
-  startTrigger,
-  duration,
-  disable,
-}) => {
+const AnimatedLetters = ({ title, trigger, startTrigger, disable }) => {
   const wordRef = useRef();
   const lettersRef = useRef([]);
 
@@ -35,29 +29,19 @@ const AnimatedLetters = ({
 
     disable && tl.kill();
 
-    // Version from To (no init in CSS)
-    // tl.fromTo(
-    //   lettersRef.current,
-    //   { yPercent: 400, rotate: 40 },
-    //   {
-    //     yPercent: 0,
-    //     rotate: 0,
-    //     stagger: 0.05,
-    //     duration: duration ? duration : 0.15,
-    //     ease: Power3.easeOut,
-    //     delay: 0.4,
-    //   }
-    // );
-
     // Version only to (init position in CSS)
     tl.to(lettersRef.current, {
       y: 0,
       rotate: 0,
       stagger: 0.02,
-      // duration: duration ? duration : 0.05,
       ease: Power3.easeOut,
       delay: 0.4,
     });
+
+    return () => {
+      tl.reverse();
+      tl.kill();
+    };
   }, []);
 
   return (
@@ -75,7 +59,7 @@ const AnimatedLetters = ({
           className="animatedLetter"
           style={{
             display: "inline-block",
-            transform: "translate(0, 200px)",
+            transform: "translate(0, 400%)",
           }}
         >
           {letter}

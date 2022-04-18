@@ -1,13 +1,12 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 // Three
 import * as THREE from "three";
-import { useFrame, useThree, useLoader } from "@react-three/fiber";
-import { CubeCamera, useTexture } from "@react-three/drei";
+import { useFrame, useThree } from "@react-three/fiber";
+import { CubeCamera } from "@react-three/drei";
 // Shaders
 import DistortedMaterial from "../Shaders/distortShader/DistortedMaterial";
-// Assets
-import feuxRouges from "../../Assets/Images/feux_rouges.jpg";
-import eliott from "../../Assets/Images/eliott.jpg";
+// wouter
+import { useRoute } from "wouter";
 // Gsap
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
@@ -15,7 +14,7 @@ import { ScrollTrigger } from "gsap/all";
 export default function DistortedSphere(props) {
   const meshRef = useRef();
   const sphereShaderRef = useRef();
-  const [followMouse, setFollowMouse] = useState();
+  const [match, param] = useRoute("/");
 
   const { viewport } = useThree();
 
@@ -27,35 +26,42 @@ export default function DistortedSphere(props) {
     // Damped Values for x and y
     let dampedX = THREE.MathUtils.damp(
       meshRef.current.position.x,
-      -mouse.x * viewport.width,
+      (mouse.x * viewport.width) / 5,
       0.9,
       delta
     );
     let dampedY = THREE.MathUtils.damp(
       meshRef.current.position.y,
-      -mouse.y * viewport.height,
+      (mouse.y * viewport.height) / 5,
       0.9,
       delta
     );
 
-    // I damp the going back to center when back in the herobanner
-    let dampedCenterX = THREE.MathUtils.damp(
-      meshRef.current.position.x,
-      0,
-      0.99,
-      delta
-    );
-    let dampedCenterY = THREE.MathUtils.damp(
-      meshRef.current.position.y,
-      0,
-      0.99,
-      delta
-    );
+    // let dampedFrequency = THREE.MathUtils.damp(
+    //   1 - Math.abs(mouse.x),
+    //   sphereShaderRef.current.distortionFrequency,
+    //   0.9,
+    //   delta
+    // );
 
-    // And i set the position of the mesh
-    followMouse
-      ? meshRef.current.position.set(dampedX, dampedY, -4.5)
-      : meshRef.current.position.set(dampedCenterX, dampedCenterY, -4.5);
+    // let dampedIntensity = THREE.MathUtils.damp(
+    //   0.5 - mouse.x,
+    //   sphereShaderRef.current.distortionIntensity,
+    //   0.5,
+    //   delta
+    // );
+
+    meshRef.current.position.x = dampedX;
+    meshRef.current.position.y = dampedY;
+    // let inversedX = 1 - Math.abs(mouse.x);
+    // let inversedY = 1 - Math.abs(mouse.y);
+
+    // // sphereShaderRef.current.distortionFrequency = dampedFrequency;
+    // sphereShaderRef.current.distortionIntensity = THREE.MathUtils.lerp(
+    //   sphereShaderRef.current.distortionIntensity,
+    //   inversedX * inversedY,
+    //   0.7
+    // );
   });
 
   useEffect(() => {
@@ -76,30 +82,25 @@ export default function DistortedSphere(props) {
       distortionSpeed: 0.3,
     });
 
-    gsap.to(meshRef.current.position, {
-      x: 0,
-      y: 0,
-      z: -6.5,
-      onComplete: () => {
-        setFollowMouse(true);
-      },
-      onReverseComplete: () => {
-        setFollowMouse(false);
-      },
-      scrollTrigger: {
-        trigger: "#Herobanner",
-        start: "top top",
-        end: "center top",
-        scrub: 1,
-        id: "distorted Sphere",
-      },
-    });
-  }, []);
+    match &&
+      gsap.to(meshRef.current.position, {
+        x: 0,
+        y: 0,
+        z: -6.5,
+        scrollTrigger: {
+          trigger: "#Herobanner",
+          start: "top top",
+          end: "center top",
+          scrub: 1,
+          id: "distorted Sphere",
+        },
+      });
+  }, [match]);
 
   return (
     <CubeCamera resolution={127} near={1} far={16}>
       {(texture) => (
-        <mesh position={[0, 0, 0]} ref={meshRef}>
+        <mesh position={[0, 0, -2.5]} ref={meshRef}>
           <sphereBufferGeometry args={[2.5, 148, 148]} />
           <distortedMaterial
             ref={sphereShaderRef}
@@ -111,18 +112,4 @@ export default function DistortedSphere(props) {
       )}
     </CubeCamera>
   );
-}
-
-{
-  /* <mesh ref={meshRef}>
-      <sphereBufferGeometry args={[2.5, 64, 64]} />
-      <MeshDistortMaterial
-        ref={meshMaterialRef}
-        attach="material"
-        distort={opts.distortion}
-        speed={2}
-        color={new THREE.Color("#0D110D")}
-        side={THREE.DoubleSide}
-      />
-    </mesh> */
 }

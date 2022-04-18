@@ -8,6 +8,7 @@
 @import "./Pages/App";
 @import "./Pages/Homepage";
 @import "./Pages/About";
+@import "./Pages/Contact";
 
 // Frames
 // Components
@@ -18,6 +19,8 @@
 @import "./Components/project";
 @import "./Components/navbar";
 @import "./Components/loading";
+@import "./Components/canvasContainer";
+@import "./Components/scrollIndicator";
 
 // React-var-gui
 @import "/node_modules/react-dat-gui/dist/index.css";
