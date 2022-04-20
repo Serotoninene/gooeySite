@@ -11,11 +11,12 @@ export default function Presentation() {
       <p>
         <AnimatedWords
           text="I am a young developer from Toulouse, France, passionate about web
-        development and eager to learn"
+        development and design, currently working with reactjs, R3F and gsap"
           trigger="#Presentation"
-          startTrigger="center"
+          startTrigger="75%"
           endTrigger="center"
           actionsToggled="play reverse restart reverse"
+          stagger={0.02}
         />
       </p>
     </div>

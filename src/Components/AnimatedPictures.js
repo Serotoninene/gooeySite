@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from "react";
 import gsap, { Power3 } from "gsap";
 
 export default function AnimatedPictures(props) {
-  const { pic, order } = props;
+  const { pic, order, round } = props;
   const imgRef = useRef();
   const imgContainerRef = useRef();
 
@@ -32,7 +32,7 @@ export default function AnimatedPictures(props) {
     );
   }, []);
   return (
-    <div ref={imgContainerRef} className="picture">
+    <div ref={imgContainerRef} className={`picture ${round ? "round" : ""}`}>
       <img ref={imgRef} src={pic} className="img-fluid" />
     </div>
   );

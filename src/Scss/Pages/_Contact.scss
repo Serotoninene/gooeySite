@@ -1,47 +1,52 @@
 #Contact {
   .contactContainer {
     margin-top: 20vh;
+    margin-bottom: 50px;
     padding: 25px 50px;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.702);
-    // backdrop-filter: blur(45px);
-    // -webkit-backdrop-filter: blur(45px);
     border-radius: 25px 25px 0 0;
-    color: #1e124d;
+    // color: #1e124d;
   }
 
-  form {
-    input,
-    textarea,
-    button {
-      border-radius: 7px;
-      min-height: 30px;
-      outline: none;
-      border: none;
-      padding: 0 20px;
-    }
+  label {
+    width: 30%;
+    line-height: 2.5rem;
+  }
 
-    textarea {
-      padding: 20px 20px;
-      resize: none;
-      font-size: 1.5rem;
-    }
+  input,
+  button {
+    outline: none;
+    border: none;
+    color: white;
+  }
+  input {
+    font-family: "Futura Bk";
 
-    input,
-    textarea {
-      font-family: "Futura Bk";
-    }
+    margin-left: 10px;
+    padding-left: 5px;
+    background-color: transparent;
+    border-bottom: 1px solid white;
+    width: 70%;
+    font-size: 1.5rem;
+  }
 
-    label {
-      margin: 15px 0 7px 0;
-    }
+  .instance {
+    margin: 44px 0 7px 0;
+    font-size: 1.5rem;
+  }
 
-    button {
-      margin-top: 15px;
-      cursor: pointer;
-      background-color: #1e124d;
-      color: white;
-      padding: 5px 10px;
+  button {
+    margin-top: 15px;
+    border-radius: 7px;
+    cursor: pointer;
+    border: solid 1px white;
+    background-color: transparent;
+    color: white;
+    padding: 5px 10px;
+    transition: all 0.2s ease-out;
+    &:hover {
+      background-color: white;
+      color: #1e124d;
     }
   }
 
@@ -50,16 +55,37 @@
       font-size: 3rem;
       line-height: 4rem;
     }
+    form label,
+    form input {
+      font-size: 1rem;
+      line-height: 1.7rem;
+    }
   }
 
   @media screen and (max-width: 590px) {
-    h2 {
-      font-size: 2rem;
-      line-height: 3rem;
+    .contactContainer {
+      padding: 12px 30px;
     }
 
-    label {
+    h2 {
+      font-size: 2rem;
+      line-height: 2.3rem;
+    }
+
+    form label,
+    form input {
       font-size: 0.8rem;
+    }
+
+    form textarea {
+      font-size: 1rem;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    h2 {
+      font-size: 1.5rem;
+      line-height: 1.7rem;
     }
   }
 }

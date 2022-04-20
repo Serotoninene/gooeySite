@@ -23,13 +23,9 @@ export default function BackgroundSphere(props) {
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-    // Color transition for tienot_no_aware
-    // color1 : rgba(0.6823, 0.6, 0.7569, 1)
-    // color2 : rgba(0.1529, 0.1764, 0.1529, 1)
-
+    // Need to verify if we're on the hP, if not, the colors change on the about page as well, and it's weird
     if (match) {
       const tienotTL = gsap.timeline({
-        // paused: true,
         defaults: {
           ease: Power3.easeIn,
           duration: 0.5,
@@ -41,6 +37,7 @@ export default function BackgroundSphere(props) {
         },
       });
 
+      //Color transition for tienot
       tienotTL.to(shaderRef.current.color1, {
         r: 173 / 255,
         g: 155 / 255,
@@ -49,9 +46,9 @@ export default function BackgroundSphere(props) {
       tienotTL.to(
         shaderRef.current.color2,
         {
-          r: 80 / 255,
-          g: 50 / 255,
-          b: 190 / 255,
+          r: 29 / 255,
+          g: 51 / 255,
+          b: 128 / 255,
         },
         "<"
       );
@@ -66,10 +63,7 @@ export default function BackgroundSphere(props) {
       );
 
       // Color transition for Serotoninene
-      // color1 : rgb(0.7843, 0.4352, 0.3804)
-      // color2 : rgba(0.1294, 0.1569, 0.3569, 1)
       const serotoTL = gsap.timeline({
-        // paused: true,
         defaults: {
           ease: Power3.easeIn,
           duration: 0.5,
@@ -81,25 +75,22 @@ export default function BackgroundSphere(props) {
         },
       });
       serotoTL.to(shaderRef.current.color1, {
-        r: 0.7843,
-        g: 0.4352,
-        b: 0.3804,
+        r: 200 / 255,
+        g: 111 / 255,
+        b: 97 / 255,
       });
       serotoTL.to(
         shaderRef.current.color2,
         {
-          r: 0.1294,
-          g: 0.1569,
-          b: 0.3569,
+          r: 33 / 255,
+          g: 40 / 255,
+          b: 136 / 255,
         },
         "<"
       );
 
       // Color transition for percept imagery
-      // color1 : rgb(247, 234, 229)
-      // color2 : rgba(33, 32, 46, 1)
       const perceptTL = gsap.timeline({
-        // paused: true,
         defaults: {
           ease: Power3.easeIn,
           duration: 0.5,
@@ -122,6 +113,43 @@ export default function BackgroundSphere(props) {
           r: 71 / 255,
           g: 138 / 255,
           b: 242 / 255,
+        },
+        "<"
+      );
+
+      // Transition for the last part : back to the first colors
+      const contactTl = gsap.timeline({
+        defaults: {
+          ease: Power3.easeIn,
+          duration: 0.5,
+        },
+        scrollTrigger: {
+          trigger: ".project2",
+          start: "bottom center",
+          toggleActions: "play none none reverse",
+          id: "ContactTl",
+        },
+      });
+      contactTl.to(shaderRef.current.color1, {
+        r: 21 / 255,
+        g: 50 / 255,
+        b: 136 / 255,
+      });
+      contactTl.to(
+        shaderRef.current.color2,
+        {
+          r: 21 / 255,
+          g: 50 / 255,
+          b: 136 / 255,
+        },
+        "<"
+      );
+      contactTl.to(
+        shaderRef.current.color3,
+        {
+          r: 206 / 255,
+          g: 206 / 255,
+          b: 235 / 255,
         },
         "<"
       );

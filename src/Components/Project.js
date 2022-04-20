@@ -14,7 +14,6 @@ export default function Project(props) {
 
   const projectRef = useRef();
   const imgRef = useRef();
-  const titleRef = useRef();
   const imgContainerRef = useRef();
 
   const { width } = useWindowSize();
@@ -37,33 +36,22 @@ export default function Project(props) {
     });
 
     tl.fromTo(
-      projectRef.current,
+      imgContainerRef.current,
       {
-        yPercent: 10,
+        scaleX: 0,
       },
-      {
-        opacity: 1,
-        scale: 1.2,
-        duration: 0.4,
-        ease: Power1.easeInOut,
-      }
+      { scaleX: 1, ease: Power1.easeOut, duration: 0.5 }
     );
-
-    tl.to(imgContainerRef.current, { borderRadius: 0, ease: Power1.easeOut });
 
     tl.fromTo(
       imgRef.current,
-      { scale: 1.2 },
+      { scale: 5 },
       {
         scale: 1.0,
         ease: Power1.easeOut,
       },
       "<"
     );
-    tl.to(titleRef.current, {
-      color: titleColor,
-      duration: 0.2,
-    });
   }, []);
 
   return (
@@ -74,7 +62,7 @@ export default function Project(props) {
       } justify-between project${i}`}
     >
       <div className="titleContainer ">
-        <h2 ref={titleRef} className={`projectTitle`}>
+        <h2 className={`projectTitle`}>
           <AnimatedLetters
             title={title1}
             trigger={`.project${i}`}
@@ -92,7 +80,7 @@ export default function Project(props) {
           )}
         </h2>
       </div>
-      <a href={url}>
+      <a href={url} className="">
         <div ref={imgContainerRef} className="projectPicture">
           <img ref={imgRef} src={img} className={`img-fluid img${i}`}></img>
         </div>

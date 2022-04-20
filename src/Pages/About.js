@@ -49,21 +49,21 @@ export default function About(props) {
                 <div className="textContainer flex-column justify-between img-fluid relative">
                   <div className="firstRow flex  justify-end img-fluid">
                     <h2>
-                      <AnimatedLetters duration={0.4} title={"Lorem"} />{" "}
-                      <AnimatedLetters duration={0.4} title={"is"} />
+                      <AnimatedLetters duration={0.4} title={"My"} />{" "}
+                      <AnimatedLetters duration={0.4} title={"thing"} />
                     </h2>
                   </div>
                   <h2 className="row flex justify-between align-center img-fluid ">
-                    <AnimatedLetters duration={0.4} title={"text"} />{" "}
-                    <AnimatedPictures pic={eliott} order={0} />
-                    <AnimatedLetters duration={0.4} title={"simply"} />{" "}
-                    <AnimatedLetters duration={0.4} title={"of"} />
+                    <AnimatedLetters duration={0.4} title={"is"} />{" "}
+                    <AnimatedPictures pic={eliott} order={0} round />
+                    <AnimatedLetters duration={0.4} title={"creating"} />{" "}
+                    <AnimatedLetters duration={0.4} title={"simple"} />
                   </h2>
                   <h2 className="row flex justify-between align-center img-fluid ">
-                    <AnimatedLetters duration={0.4} title={"dummy"} />{" "}
-                    <AnimatedLetters duration={0.4} title={"and"} />
+                    <AnimatedLetters duration={0.4} title={"and"} />{" "}
+                    <AnimatedLetters duration={0.4} title={"minimal"} />
                     <AnimatedPictures pic={feuxRouges} order={1} />
-                    <AnimatedLetters duration={0.4} title={"the"} />{" "}
+                    <AnimatedLetters duration={0.4} title={"stuff"} />{" "}
                   </h2>
                 </div>
                 <div
@@ -71,9 +71,9 @@ export default function About(props) {
                   ref={bottomParagraphRef}
                 >
                   <p>
-                    It is a long established fact that a reader will be
-                    distracted by the readable content of a page when looking at
-                    its layout.
+                    I've been learning web development for 3 years now, focused
+                    on reactjs for a year, here are some of the tech I love :
+                    reactjs, R3F, gsap, framer-motion, threejs.
                   </p>
                 </div>
               </div>
@@ -82,7 +82,7 @@ export default function About(props) {
             <div id="About" className="flex-column justify-end">
               <div>
                 <h2>
-                  <AnimatedWords text="Lorem is text simply of dummy and the" />
+                  <AnimatedWords text="My thing is creating simple and minimal stuff" />
                 </h2>
                 <div
                   className="bottomParagraphContainer"

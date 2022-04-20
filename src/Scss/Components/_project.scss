@@ -1,8 +1,6 @@
 .Project {
-  margin: 200px 50px;
+  margin-bottom: 200px;
   flex-direction: row-reverse;
-  height: 60vh;
-  opacity: 0;
 
   .titleContainer {
     height: 100%;
@@ -22,125 +20,8 @@
   .projectPicture {
     width: 55vw;
     overflow: hidden;
-    border-radius: 25%;
     img {
       transform: scale(1.2);
-    }
-  }
-
-  @media screen and (min-width: 1470px) {
-    .titleContainer h2 {
-      font-size: 5rem;
-      line-height: 5rem;
-    }
-  }
-
-  @media screen and (min-width: 1675px) {
-    margin: 0 100px;
-    .titleContainer h2 {
-      font-size: 6rem;
-      line-height: 6rem;
-    }
-  }
-  @media screen and (min-width: 1900px) {
-    margin: 200px 100px;
-    .titleContainer h2 {
-      font-size: 6.6rem;
-      line-height: 6.6rem;
-    }
-  }
-  @media screen and (max-width: 1100px) {
-    .titleContainer h2 {
-      font-size: 3.5rem;
-      line-height: 3.5rem;
-    }
-  }
-  @media screen and (max-width: 992px) {
-    .titleContainer h2 {
-      font-size: 3rem;
-      line-height: 3rem;
-    }
-  }
-  @media screen and (max-width: 830px) {
-    .titleContainer h2 {
-      font-size: 2.5rem;
-      line-height: 2.5rem;
-    }
-  }
-
-  @media screen and (max-width: 772px) {
-    height: auto;
-    margin: 100px 25px;
-    .projectPicture {
-      width: 100%;
-      height: auto;
-    }
-
-    .titleContainer h2 {
-      font-size: 2rem;
-      line-height: 2rem;
-    }
-  }
-
-  @media screen and (max-width: 576px) {
-    padding: 0;
-    margin: 100px 25px;
-    .titleContainer .projectTitle {
-      width: 100%;
-    }
-
-    .titleContainer h2 {
-      font-size: 1.5rem;
-    }
-  }
-
-  @media screen and (max-width: 390px) {
-    .titleContainer h2 {
-      font-size: 1rem;
-      line-height: 1.5rem;
-    }
-  }
-}
-
-.Project:first-of-type {
-  margin-top: 100px;
-  @media screen and (max-width: 772px) {
-    margin-top: 0;
-    padding-top: 0;
-  }
-}
-
-.Project:last-of-type {
-  margin: 50px 50px;
-
-  @media screen and (max-width: 772px) {
-    margin: 50px 25px;
-    height: auto;
-
-    .projectPicture {
-      width: 100%;
-      height: auto;
-    }
-    .projectTitle {
-      h2 {
-        font-size: 2rem;
-        line-height: 0rem;
-      }
-    }
-  }
-
-  @media screen and (max-width: 576px) {
-    margin: 50px 25px;
-
-    .projectPicture {
-      width: 100%;
-      height: auto;
-    }
-    .projectTitle {
-      h2 {
-        font-size: 2rem;
-        line-height: 0rem;
-      }
     }
   }
 }
@@ -150,5 +31,110 @@
 
   .projectTitle {
     left: 35vw;
+  }
+}
+
+.Project:last-of-type {
+  margin-bottom: 50px;
+}
+
+@media screen and (min-width: 1470px) {
+  .Project {
+    height: 60vh;
+    .titleContainer h2 {
+      font-size: 5rem;
+      line-height: 5rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1675px) {
+  .Project {
+    margin: 0 100px;
+    .titleContainer h2 {
+      font-size: 6rem;
+      line-height: 6rem;
+    }
+  }
+}
+@media screen and (min-width: 1900px) {
+  .Project {
+    margin: 200px 100px;
+    .titleContainer h2 {
+      font-size: 6.6rem;
+      line-height: 6.6rem;
+    }
+  }
+}
+@media screen and (max-width: 1100px) {
+  .Project {
+    margin-bottom: 150px;
+    .titleContainer h2 {
+      font-size: 3.5rem;
+      line-height: 3.5rem;
+    }
+  }
+}
+@media screen and (max-width: 992px) {
+  .Project {
+    height: auto;
+    margin-bottom: 100px;
+    .titleContainer h2 {
+      font-size: 3rem;
+      line-height: 3rem;
+    }
+  }
+}
+@media screen and (max-width: 830px) {
+  .Project {
+    .titleContainer h2 {
+      font-size: 2.5rem;
+      line-height: 2.5rem;
+    }
+  }
+}
+
+@media screen and (max-width: 772px) {
+  .Project {
+    .projectTitle {
+      width: 15vw;
+    }
+
+    .projectPicture {
+      width: 65vw;
+    }
+
+    .titleContainer h2 {
+      font-size: 2rem;
+      line-height: 2rem;
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .Project {
+    padding: 0;
+    margin-bottom: 50px;
+
+    .projectPicture {
+      width: 100%;
+    }
+    .titleContainer .projectTitle {
+      width: 100%;
+    }
+
+    .titleContainer h2 {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .Project {
+    margin-bottom: 30px;
+    .titleContainer h2 {
+      font-size: 1rem;
+      line-height: 1.5rem;
+    }
   }
 }

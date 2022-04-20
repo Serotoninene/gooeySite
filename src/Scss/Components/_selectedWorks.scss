@@ -1,19 +1,27 @@
 #SelectedWorks {
-  & > h2 {
-    margin-top: 50px;
+  margin-bottom: 100px;
+  .mainTitle {
     transform: translate(0, 0);
+  }
+}
 
-    @media screen and (max-width: 992px) {
-      font-size: 3rem;
-    }
+@media screen and (max-width: 992px) {
+  #SelectedWorks .mainTitle {
+    font-size: 2.5rem;
+    line-height: 3rem;
+  }
+}
 
-    @media screen and (max-width: 768px) {
-      font-size: 2.5rem;
-      margin-top: 0;
-    }
+@media screen and (max-width: 768px) {
+  #SelectedWords .mainTitle {
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+}
 
-    @media screen and (max-width: 576px) {
-      font-size: 1.6rem;
-    }
+@media screen and (max-width: 576px) {
+  #SelectedWords .mainTitle {
+    font-size: 1.6rem;
+    line-height: 2rem;
   }
 }

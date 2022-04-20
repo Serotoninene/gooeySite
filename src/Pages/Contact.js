@@ -70,56 +70,63 @@ export default function Contact(props) {
                 method="POST"
                 target="_blank"
               >
-                <label
-                  ref={(e) => (contactElements.current[0] = e)}
-                  htmlFor="fname"
-                >
-                  Name:
-                </label>
-                <input
-                  ref={(e) => {
-                    contactElements.current[1] = e;
-                  }}
-                  type="text"
-                  id="fname"
-                  name="fname"
-                  required
-                />
-                <label
-                  ref={(e) => {
-                    contactElements.current[2] = e;
-                  }}
-                  htmlFor="fname"
-                >
-                  Email:
-                </label>
-                <input
-                  ref={(e) => {
-                    contactElements.current[3] = e;
-                  }}
-                  type="email"
-                  id="fname"
-                  name="fname"
-                  required
-                />
-                <label
-                  ref={(e) => {
-                    contactElements.current[4] = e;
-                  }}
-                  htmlFor="fstory"
-                >
-                  Tell us your story:
-                </label>
-                <textarea
-                  ref={(e) => {
-                    contactElements.current[5] = e;
-                  }}
-                  id="fstory"
-                  name="fstory"
-                  rows="5"
-                  cols="33"
-                  placeholder="your text here ..."
-                ></textarea>
+                {" "}
+                <div className="flex instance justify-between">
+                  <label
+                    ref={(e) => (contactElements.current[0] = e)}
+                    htmlFor="fname"
+                  >
+                    Name:
+                  </label>
+                  <input
+                    ref={(e) => {
+                      contactElements.current[1] = e;
+                    }}
+                    type="text"
+                    id="fname"
+                    name="fname"
+                    required
+                  />
+                </div>
+                <div className="flex instance justify-between justify-between">
+                  <label
+                    ref={(e) => {
+                      contactElements.current[2] = e;
+                    }}
+                    htmlFor="fname"
+                  >
+                    Email:
+                  </label>
+                  <input
+                    ref={(e) => {
+                      contactElements.current[3] = e;
+                    }}
+                    type="email"
+                    id="fname"
+                    name="fname"
+                    required
+                  />
+                </div>
+                <div className="flex instance justify-between">
+                  <label
+                    ref={(e) => {
+                      contactElements.current[4] = e;
+                    }}
+                    htmlFor="fstory"
+                  >
+                    Let's talk about:
+                  </label>
+                  <input
+                    ref={(e) => {
+                      contactElements.current[5] = e;
+                    }}
+                    className="topic"
+                    type="text"
+                    id="fmessage"
+                    name="fmessage"
+                    required
+                  />
+                </div>
                 <div className="buttonContainer flex justify-center img-fluid">
                   <button
                     ref={(e) => {
@@ -127,7 +134,7 @@ export default function Contact(props) {
                     }}
                     type="submit"
                   >
-                    Send the message
+                    Send
                   </button>
                 </div>
               </form>

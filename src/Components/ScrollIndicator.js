@@ -8,16 +8,19 @@ import AnimatedLetters from "./AnimatedLetters";
 export default function ScrollIndicator() {
   const [scrolling, setScrolling] = useState(true);
   const lineRef = useRef();
-  console.log(scrolling);
+
   useEffect(() => {
+    gsap.to(lineRef.current, {
+      opacity: 1,
+      delay: 1.5,
+    });
     gsap.to(lineRef.current, {
       y: 25,
       scaleY: 0,
       scrollTrigger: {
         trigger: "#Homepage",
         start: "top top",
-        end: "top+=100vh top",
-        // end: "bottom bottom", // correct end
+        end: "bottom bottom", // correct end
         scrub: true,
         onLeave: () => {
           setScrolling(false);
@@ -31,11 +34,11 @@ export default function ScrollIndicator() {
   return (
     <div id="ScrollIndicator" className="fixed flex-column align-center">
       <p>
-        {scrolling ? (
-          <AnimatedLetters title="Scroll" />
-        ) : (
-          <AnimatedLetters title="Back" />
-        )}
+        {/* {scrolling ? ( */}
+        <AnimatedLetters title="Scroll" delay={1.6} end={!scrolling} />
+        {/* ) : (
+          <AnimatedLetters title="Back" outAnimation trigger="#Homepage" />
+        )} */}
       </p>
       <div ref={lineRef} className="scrollLine"></div>
     </div>

@@ -13,8 +13,6 @@ export default function HPScene(props) {
         enableDamping={false}
         enableRotate={false}
       />
-      <ambientLight intensity={1} />
-      <directionalLight color="white" position={[5, 5, 5]} />
       <DistortedSphere {...props} /> <BackgroundSphere {...props} />
     </>
   );

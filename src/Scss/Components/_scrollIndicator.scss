@@ -1,6 +1,8 @@
 #ScrollIndicator {
   bottom: 30px;
   right: 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease-out;
 
   p span {
     font-family: "Futura Bk";
@@ -8,9 +10,14 @@
   }
 
   .scrollLine {
+    opacity: 0;
     width: 1px;
     height: 50px;
     border-radius: 12px;
     background-color: white;
+  }
+
+  &:hover {
+    transform: scale(1.1);
   }
 }

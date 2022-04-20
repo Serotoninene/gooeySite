@@ -1,0 +1,45 @@
+#BurgerMenu {
+  display: none;
+  .line {
+    width: 40px;
+    height: 2px;
+    background-color: white;
+  }
+
+  .line:first-of-type {
+    margin-bottom: 10px;
+  }
+
+  .menu {
+    padding: px 50px;
+  }
+
+  .menu,
+  .transitionPanel {
+    width: 100%;
+    height: 100vh;
+    left: 100%;
+    top: 0;
+    background-color: #0d213e;
+
+    h2 {
+      cursor: pointer;
+      font-size: 3rem;
+    }
+  }
+
+  .transitionPanel {
+    background-color: #445076;
+  }
+
+  .burgerBtn {
+    pointer-events: all;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 625px) {
+  #BurgerMenu {
+    display: block;
+  }
+}

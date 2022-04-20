@@ -9,7 +9,7 @@ export default function CameraAnimation() {
     gsap.registerPlugin(ScrollTrigger);
 
     gsap.from(camera.position, {
-      z: 8,
+      z: 7,
       duration: 1,
       delay: 1,
       ease: Power3.easeInOut,

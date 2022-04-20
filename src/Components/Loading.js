@@ -2,13 +2,12 @@ import React, { useEffect, useRef } from "react";
 // Gsap
 import gsap, { Linear, Power3 } from "gsap";
 // framer-motion
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 // Assets
 import logo from "../Assets/Logos/logo.svg";
 import loadingTypo from "../Assets/Icons/loadingCircle.svg";
 
 export default function Loading(props) {
-  const { loading, setLoading } = props;
   const typoRef = useRef();
 
   useEffect(() => {
@@ -32,6 +31,7 @@ export default function Loading(props) {
       repeat: -1,
     });
   }, []);
+
   return (
     <div>
       <motion.div

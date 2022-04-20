@@ -3,13 +3,21 @@ import React, { useEffect, useRef } from "react";
 import gsap, { Power3 } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 
-const AnimatedLetters = ({ title, trigger, startTrigger, disable }) => {
-  const wordRef = useRef();
+const AnimatedLetters = ({
+  title,
+  trigger,
+  startTrigger,
+  disable,
+  toggleActions,
+  markers,
+  delay,
+  end,
+}) => {
   const lettersRef = useRef([]);
-
-  const addToRefs = (el) => {
+  const addToRefs = (el, idx) => {
+    idx === 0 && (lettersRef.current = []);
     if (el && !lettersRef.current.includes(el)) {
-      lettersRef.current.push(el);
+      lettersRef.current[idx] = el;
     }
   };
 
@@ -21,8 +29,11 @@ const AnimatedLetters = ({ title, trigger, startTrigger, disable }) => {
           scrollTrigger: {
             trigger: `${trigger}`,
             start: `top ${startTrigger}`,
-            toggleActions: "play none none reverse",
+            toggleActions: toggleActions
+              ? toggleActions
+              : "play none none reverse",
             id: title,
+            markers: markers ? markers : false,
           },
         })
       : gsap.timeline();
@@ -35,18 +46,26 @@ const AnimatedLetters = ({ title, trigger, startTrigger, disable }) => {
       rotate: 0,
       stagger: 0.02,
       ease: Power3.easeOut,
-      delay: 0.4,
+      delay: delay ? delay : 0.4,
     });
 
-    return () => {
-      tl.reverse();
-      tl.kill();
-    };
-  }, []);
+    if (end) {
+      gsap.to(lettersRef.current, {
+        yPercent: -100,
+        stagger: 0.02,
+        ease: Power3.easeOut,
+      });
+    } else {
+      gsap.to(lettersRef.current, {
+        yPercent: 0,
+        stagger: 0.02,
+        ease: Power3.easeOut,
+      });
+    }
+  }, [end]);
 
   return (
     <span
-      ref={wordRef}
       className="hidden"
       style={{
         display: "inline-block",
@@ -55,7 +74,7 @@ const AnimatedLetters = ({ title, trigger, startTrigger, disable }) => {
       {[...title].map((letter, idx) => (
         <span
           key={idx}
-          ref={addToRefs}
+          ref={(e) => addToRefs(e, idx)}
           className="animatedLetter"
           style={{
             display: "inline-block",

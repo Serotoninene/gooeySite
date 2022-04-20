@@ -1,40 +1,49 @@
 #Presentation {
-  height: 100vh;
+  margin: 200px 0;
 
   p {
     font-size: 3rem;
     line-height: 5rem;
+  }
+}
 
-    @media screen and (min-width: 1400px) {
-      font-size: 4rem;
-      line-height: 6rem;
-    }
+@media screen and (min-width: 1400px) {
+  #Presentation p {
+    font-size: 4rem;
+    line-height: 6rem;
+  }
+}
 
-    @media screen and (max-width: 992px) {
-      font-size: 2.5rem;
-      line-height: 4.5rem;
-    }
+@media screen and (max-width: 992px) {
+  #Presentation p {
+    font-size: 2.5rem;
+    line-height: 4.5rem;
+  }
+}
 
-    @media screen and (max-width: 768px) {
-      font-size: 2rem;
-      line-height: 4rem;
-    }
+@media screen and (max-width: 768px) {
+  #Presentation p {
+    font-size: 2rem;
+    line-height: 4rem;
+  }
+}
 
-    @media screen and (max-width: 576px) {
+@media screen and (max-width: 576px) {
+  #Presentation {
+    margin-bottom: 50px;
+    align-items: flex-start;
+    p {
       font-size: 1.6rem;
       line-height: 3rem;
       height: auto;
       padding: 50px 0;
     }
-
-    @media screen and (max-width: 450px) {
-      font-size: 1rem;
-      line-height: 2rem;
-    }
   }
+}
 
-  @media screen and (max-width: 576px) {
-    height: 60vh;
-    align-items: flex-start;
+@media screen and (max-width: 450px) {
+  #Presentation p {
+    font-size: 1rem;
+    line-height: 2rem;
   }
 }

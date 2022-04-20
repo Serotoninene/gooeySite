@@ -12,7 +12,7 @@
   }
 
   .logoContainer {
-    width: 7px;
+    width: 9px;
     transform: translate(0, -80px);
     img {
       width: 100%;
@@ -20,6 +20,7 @@
   }
 
   .navLinks {
+    display: flex;
     font-family: "Futura Bk";
     font-size: 1.1rem;
 
@@ -59,5 +60,23 @@
       width: 1700px;
       margin: 0 auto;
     }
+  }
+}
+
+@media screen and (max-width: 775px) {
+  #Navbar {
+    padding: 10px 50px;
+  }
+}
+
+@media screen and (max-width: 625px) {
+  #Navbar .navLinks {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  #Navbar {
+    padding: 10px 25px;
   }
 }

@@ -1,7 +1,5 @@
-import { useEffect, useRef, useState } from "react";
-// Gsap
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/all";
+import { useEffect, useState } from "react";
+
 // Components
 import CanvasContainer from "./Three/ThreeElements/CanvasContainer";
 import HPScene from "./Three/ThreeScenes/HPScene";
@@ -9,14 +7,12 @@ import Navbar from "./Components/Navbar";
 import Homepage from "./Pages/Homepage";
 import About from "./Pages/About";
 import Loading from "./Components/Loading";
-import Contact from "./Pages/Contact";
 // Styling
 import "./Scss/style.scss";
-import DatUi from "./Components/DatUi";
 import { AnimatePresence, motion } from "framer-motion";
 
 function App() {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   // Data for the debugUi mothafucka
   const [data, setData] = useState({
@@ -32,8 +28,6 @@ function App() {
     setInterval(() => {
       setLoading(false);
     }, 2000);
-
-    gsap.registerPlugin(ScrollTrigger);
   }, []);
 
   return (
@@ -50,7 +44,6 @@ function App() {
           </motion.div>
         ) : (
           <>
-            {/* <DatUi data={data} setData={setData} />{" "} */}
             <CanvasContainer>
               <HPScene data={data} />
             </CanvasContainer>

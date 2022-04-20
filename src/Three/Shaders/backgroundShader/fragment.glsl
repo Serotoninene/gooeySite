@@ -55,7 +55,6 @@ void main() {
   float n = noise(vPosition + uTime/3.);
   vec3 color1 =  uColor3;
   vec3 color2 =  uColor2;
-  // vec3 color3 =  vec3(0.88,0.58,0.26);
   vec3 color3 = uColor1;
 
   vec2 baseUV = rotate2D(n) * vPosition.xy * 0.1;
