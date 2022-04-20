@@ -2,16 +2,15 @@ import React, { useEffect, useRef, useState } from "react";
 // Wouter
 import { useLocation, useRoute } from "wouter";
 // Framer-motion
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 // Gsap
-import gsap, { Power1, Power3 } from "gsap";
+import gsap, { Power1 } from "gsap";
 // Components
 import AnimatedLetters from "../Components/AnimatedLetters";
 import AnimatedWords from "../Components/AnimatedWords";
 // Assets
 import feuxRouges from "../Assets/Images/feux_rouges.jpg";
 import eliott from "../Assets/Images/eliott.jpg";
-import fenetre from "../Assets/Images/fenetre.jpg";
 // Utils
 import useWindowSize from "../Utilitaries/Hooks/useWindowSize";
 import AnimatedPictures from "../Components/AnimatedPictures";
@@ -42,28 +41,63 @@ export default function About(props) {
   return (
     <AnimatePresence>
       {location === props.path && (
-        <>
+        <motion.div
+          key="about"
+          initial={{
+            opacity: 0,
+          }}
+          animate={{
+            opacity: 1,
+          }}
+          exit={{
+            opacity: 0,
+          }}
+          transition={{
+            duration: 1,
+            ease: "easeIn",
+          }}
+        >
           {!phoneFormat ? (
             <div id="About" className="flex align-end relative">
               <div>
                 <div className="textContainer flex-column justify-between img-fluid relative">
                   <div className="firstRow flex  justify-end img-fluid">
                     <h2>
-                      <AnimatedLetters duration={0.4} title={"My"} />{" "}
-                      <AnimatedLetters duration={0.4} title={"thing"} />
+                      <AnimatedLetters delay={1} duration={0.4} title={"My"} />{" "}
+                      <AnimatedLetters
+                        delay={1}
+                        duration={0.4}
+                        title={"thing"}
+                      />
                     </h2>
                   </div>
                   <h2 className="row flex justify-between align-center img-fluid ">
-                    <AnimatedLetters duration={0.4} title={"is"} />{" "}
+                    <AnimatedLetters delay={1} duration={0.4} title={"is"} />{" "}
                     <AnimatedPictures pic={eliott} order={0} round />
-                    <AnimatedLetters duration={0.4} title={"creating"} />{" "}
-                    <AnimatedLetters duration={0.4} title={"simple"} />
+                    <AnimatedLetters
+                      delay={1}
+                      duration={0.4}
+                      title={"creating"}
+                    />{" "}
+                    <AnimatedLetters
+                      delay={1}
+                      duration={0.4}
+                      title={"simple"}
+                    />
                   </h2>
                   <h2 className="row flex justify-between align-center img-fluid ">
-                    <AnimatedLetters duration={0.4} title={"and"} />{" "}
-                    <AnimatedLetters duration={0.4} title={"minimal"} />
+                    <AnimatedLetters delay={1} duration={0.4} title={"and"} />{" "}
+                    <AnimatedLetters
+                      delay={1}
+                      duration={0.4}
+                      title={"minimal"}
+                    />
                     <AnimatedPictures pic={feuxRouges} order={1} />
-                    <AnimatedLetters duration={0.4} title={"stuff"} />{" "}
+                    <AnimatedLetters
+                      delay={1}
+                      duration={0.4}
+                      title={"stuff"}
+                    />{" "}
                   </h2>
                 </div>
                 <div
@@ -97,7 +131,7 @@ export default function About(props) {
               </div>
             </div>
           )}
-        </>
+        </motion.div>
       )}
     </AnimatePresence>
   );

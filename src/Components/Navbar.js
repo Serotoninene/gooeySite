@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 // Framer motion
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 // Gsap
 import gsap, { Power3 } from "gsap";
 import { ScrollTrigger } from "gsap/all";
@@ -33,7 +33,7 @@ const navLinksArray = [
   {
     title: "Github",
     link: null,
-    href: "/https://github.com/Serotoninene",
+    href: "https://github.com/Serotoninene",
   },
 ];
 

@@ -1,7 +1,4 @@
-import React, { useEffect, useRef } from "react";
-// Gsap
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/all";
+import React from "react";
 // Utils
 import AnimatedWords from "./AnimatedWords";
 

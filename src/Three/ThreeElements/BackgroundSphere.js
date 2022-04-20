@@ -24,137 +24,140 @@ export default function BackgroundSphere(props) {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     // Need to verify if we're on the hP, if not, the colors change on the about page as well, and it's weird
-    if (match) {
-      const tienotTL = gsap.timeline({
-        defaults: {
-          ease: Power3.easeIn,
-          duration: 0.5,
-        },
-        scrollTrigger: {
-          trigger: ".project0",
-          start: "center bottom",
-          toggleActions: "play none none reverse",
-        },
-      });
 
-      //Color transition for tienot
-      tienotTL.to(shaderRef.current.color1, {
-        r: 173 / 255,
-        g: 155 / 255,
-        b: 193 / 255,
-      });
-      tienotTL.to(
-        shaderRef.current.color2,
-        {
-          r: 29 / 255,
-          g: 51 / 255,
-          b: 128 / 255,
-        },
-        "<"
-      );
-      tienotTL.to(
-        shaderRef.current.color3,
-        {
-          r: 107 / 255,
-          g: 107 / 255,
-          b: 202 / 255,
-        },
-        "<"
-      );
+    const tienotTL = gsap.timeline({
+      defaults: {
+        ease: Power3.easeIn,
+        duration: 0.5,
+      },
+      scrollTrigger: {
+        trigger: ".project0",
+        start: "center bottom",
+        toggleActions: "play none none reverse",
+      },
+    });
 
-      // Color transition for Serotoninene
-      const serotoTL = gsap.timeline({
-        defaults: {
-          ease: Power3.easeIn,
-          duration: 0.5,
-        },
-        scrollTrigger: {
-          trigger: ".project1",
-          start: "center bottom",
-          toggleActions: "play none none reverse",
-        },
-      });
-      serotoTL.to(shaderRef.current.color1, {
-        r: 200 / 255,
-        g: 111 / 255,
-        b: 97 / 255,
-      });
-      serotoTL.to(
-        shaderRef.current.color2,
-        {
-          r: 33 / 255,
-          g: 40 / 255,
-          b: 136 / 255,
-        },
-        "<"
-      );
+    //Color transition for tienot
+    tienotTL.to(shaderRef.current.color1, {
+      r: 173 / 255,
+      g: 155 / 255,
+      b: 193 / 255,
+    });
+    tienotTL.to(
+      shaderRef.current.color2,
+      {
+        r: 29 / 255,
+        g: 51 / 255,
+        b: 128 / 255,
+      },
+      "<"
+    );
+    tienotTL.to(
+      shaderRef.current.color3,
+      {
+        r: 107 / 255,
+        g: 107 / 255,
+        b: 202 / 255,
+      },
+      "<"
+    );
+    !match && tienotTL.kill();
 
-      // Color transition for percept imagery
-      const perceptTL = gsap.timeline({
-        defaults: {
-          ease: Power3.easeIn,
-          duration: 0.5,
-        },
-        scrollTrigger: {
-          trigger: ".project2",
-          start: "center bottom",
-          toggleActions: "play none none reverse",
-          id: "perceptTL",
-        },
-      });
-      perceptTL.to(shaderRef.current.color1, {
-        r: 244 / 255,
-        g: 234 / 255,
-        b: 229 / 255,
-      });
-      perceptTL.to(
-        shaderRef.current.color2,
-        {
-          r: 71 / 255,
-          g: 138 / 255,
-          b: 242 / 255,
-        },
-        "<"
-      );
+    // Color transition for Serotoninene
+    const serotoTL = gsap.timeline({
+      defaults: {
+        ease: Power3.easeIn,
+        duration: 0.5,
+      },
+      scrollTrigger: {
+        trigger: ".project1",
+        start: "center bottom",
+        toggleActions: "play none none reverse",
+      },
+    });
+    serotoTL.to(shaderRef.current.color1, {
+      r: 200 / 255,
+      g: 111 / 255,
+      b: 97 / 255,
+    });
+    serotoTL.to(
+      shaderRef.current.color2,
+      {
+        r: 33 / 255,
+        g: 40 / 255,
+        b: 136 / 255,
+      },
+      "<"
+    );
+    !match && serotoTL.kill();
 
-      // Transition for the last part : back to the first colors
-      const contactTl = gsap.timeline({
-        defaults: {
-          ease: Power3.easeIn,
-          duration: 0.5,
-        },
-        scrollTrigger: {
-          trigger: ".project2",
-          start: "bottom center",
-          toggleActions: "play none none reverse",
-          id: "ContactTl",
-        },
-      });
-      contactTl.to(shaderRef.current.color1, {
+    // Color transition for percept imagery
+    const perceptTL = gsap.timeline({
+      defaults: {
+        ease: Power3.easeIn,
+        duration: 0.5,
+      },
+      scrollTrigger: {
+        trigger: ".project2",
+        start: "center bottom",
+        toggleActions: "play none none reverse",
+        id: "perceptTL",
+      },
+    });
+    perceptTL.to(shaderRef.current.color1, {
+      r: 244 / 255,
+      g: 234 / 255,
+      b: 229 / 255,
+    });
+    perceptTL.to(
+      shaderRef.current.color2,
+      {
+        r: 71 / 255,
+        g: 138 / 255,
+        b: 242 / 255,
+      },
+      "<"
+    );
+    !match && perceptTL.kill();
+
+    // Transition for the last part : back to the first colors
+    const contactTl = gsap.timeline({
+      defaults: {
+        ease: Power3.easeIn,
+        duration: 0.5,
+      },
+      scrollTrigger: {
+        trigger: ".project2",
+        start: "bottom center",
+        toggleActions: "play none none reverse",
+        id: "ContactTl",
+      },
+    });
+    contactTl.to(shaderRef.current.color1, {
+      r: 21 / 255,
+      g: 50 / 255,
+      b: 136 / 255,
+    });
+    contactTl.to(
+      shaderRef.current.color2,
+      {
         r: 21 / 255,
         g: 50 / 255,
         b: 136 / 255,
-      });
-      contactTl.to(
-        shaderRef.current.color2,
-        {
-          r: 21 / 255,
-          g: 50 / 255,
-          b: 136 / 255,
-        },
-        "<"
-      );
-      contactTl.to(
-        shaderRef.current.color3,
-        {
-          r: 206 / 255,
-          g: 206 / 255,
-          b: 235 / 255,
-        },
-        "<"
-      );
-    }
-  }, [match]);
+      },
+      "<"
+    );
+    contactTl.to(
+      shaderRef.current.color3,
+      {
+        r: 206 / 255,
+        g: 206 / 255,
+        b: 235 / 255,
+      },
+      "<"
+    );
+    !match && contactTl.kill();
+  }, []);
   return (
     <mesh ref={meshRef} position={[0, 0, 0]} scale={[13, 13, 13]}>
       <sphereBufferGeometry args={[1, 32, 32]} />
