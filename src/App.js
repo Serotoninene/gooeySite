@@ -31,7 +31,7 @@ function App() {
   }, []);
 
   return (
-    <AnimatePresence exitBeforeEnter>
+    <AnimatePresence exitBeforeEnter key={"animatePres"}>
       <CanvasContainer loading={loading}>
         <HPScene data={data} />
       </CanvasContainer>
@@ -46,7 +46,7 @@ function App() {
           exit={{
             opacity: 0,
           }}
-          key="loader"
+          key={loading}
         >
           <Loading loading={loading} setLoading={setLoading} />
         </motion.div>

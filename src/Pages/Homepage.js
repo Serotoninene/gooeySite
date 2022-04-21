@@ -20,7 +20,7 @@ export default function Homepage(props) {
       {location === props.path && (
         <motion.div
           id="Homepage"
-          key="1"
+          key="Homepage"
           initial={{
             opacity: 0,
           }}

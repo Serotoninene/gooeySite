@@ -8,7 +8,7 @@ import BackgroundMaterial from "../Shaders/backgroundShader/BackgroundMaterial";
 // Wouter
 import { useRoute } from "wouter";
 // Gsap
-import gsap, { Power3 } from "gsap";
+import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 
 const colorTransition = (el, project, color1, color2, color3, start) => {
@@ -17,10 +17,6 @@ const colorTransition = (el, project, color1, color2, color3, start) => {
       trigger: `.${project}`,
       start: start ? start : "center bottom",
       toggleActions: "play none none reverse",
-    },
-    defaults: {
-      ease: Power3.easeIn,
-      duration: 0.5,
     },
   });
 
@@ -63,45 +59,15 @@ export default function BackgroundSphere(props) {
 
   useFrame(({ clock }) => {
     shaderRef.current.time = clock.getElapsedTime();
-    // meshRef.current.rotation.y = clock.getElapsedTime() * 0.3;
   });
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-    // Need to verify if we're on the hP, if not, the colors change on the about page as well, and it's weird
 
+    // Need to verify if we're on the hP, if not, the colors
+    // change on the about page as well, and it's weird
     if (match) {
-      // Color transition for tienot
-      tl.current.add(
-        colorTransition(
-          shaderRef.current,
-          "project0",
-          { r: 173, g: 155, b: 193 },
-          { r: 29, g: 51, b: 128 },
-          { r: 107, g: 107, b: 202 }
-        )
-      );
-
-      // Color transition for Serotoninene
-      tl.current.add(
-        colorTransition(
-          shaderRef.current,
-          "project1",
-          { r: 200, g: 111, b: 97 },
-          { r: 33, g: 40, b: 136 }
-        )
-      );
-
-      // Color transition for percept imagery
-      tl.current.add(
-        colorTransition(
-          shaderRef.current,
-          "project2",
-          { r: 244, g: 234, b: 229 },
-          { r: 71, g: 138, b: 242 }
-        )
-      );
-      // Transition for the last part : back to the first colors
+      // Transition just for the contact form
       tl.current.add(
         colorTransition(
           shaderRef.current,

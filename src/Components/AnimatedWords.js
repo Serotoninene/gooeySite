@@ -86,7 +86,7 @@ export default function AnimatedWords(props) {
     <>
       {words.map((word, idx) => (
         <span
-          key={idx}
+          key={`word${idx}`}
           style={{
             display: "inline-block",
             overflow: "hidden",

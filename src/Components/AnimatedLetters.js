@@ -73,7 +73,7 @@ const AnimatedLetters = ({
     >
       {[...title].map((letter, idx) => (
         <span
-          key={idx}
+          key={`letter${idx}`}
           ref={(e) => addToRefs(e, idx)}
           className="animatedLetter"
           style={{

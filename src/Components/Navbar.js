@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 // Framer motion
 import { motion } from "framer-motion";
 // Gsap
@@ -44,7 +44,6 @@ export default function Navbar({ loading }) {
 
   const [match, params] = useRoute("/");
   const { width } = useWindowSize();
-
   const { isDown } = useScrollDirection();
 
   useEffect(() => {

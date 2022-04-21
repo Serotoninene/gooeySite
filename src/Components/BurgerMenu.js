@@ -67,14 +67,13 @@ export default function BurgerMenu(props) {
   const { navLinksArray } = props;
   const [allowBlock, disableBlock] = useScrollBlock();
 
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(null);
   const line1Ref = useRef();
   const line2Ref = useRef();
   const panelsRef = useRef([]);
 
   const tl = useRef(
     gsap.timeline({
-      paused: true,
       defaults: { ease: Power3.easeOut, duration: 1 },
     })
   );
@@ -101,13 +100,15 @@ export default function BurgerMenu(props) {
       },
       "<"
     );
+
+    tl.current.pause();
   }, []);
 
   useEffect(() => {
     if (open) {
       allowBlock();
       tl.current.play();
-    } else {
+    } else if (open === false && open != null) {
       tl.current.timeScale(1.5).reverse(0);
       disableBlock();
     }
@@ -133,7 +134,6 @@ export default function BurgerMenu(props) {
               {!e.href ? (
                 <Link
                   href={e.link}
-                  key={idx}
                   onClick={() => {
                     setOpen(false);
                   }}
@@ -143,7 +143,7 @@ export default function BurgerMenu(props) {
                   </div>
                 </Link>
               ) : (
-                <a key={idx} href={e.href} className="navLink">
+                <a href={e.href} className="navLink">
                   <BurgerAnimation title={e.title} start={open} />
                 </a>
               )}
@@ -154,7 +154,7 @@ export default function BurgerMenu(props) {
       <div
         className="burgerBtn"
         onClick={() => {
-          setOpen(!open);
+          setOpen(open === null ? true : !open);
         }}
       >
         <div ref={line1Ref} className="line"></div>
