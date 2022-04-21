@@ -10,7 +10,7 @@ import { useRoute } from "wouter";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 
-export default function DistortedSphere(props) {
+export default function DistortedSphere() {
   const meshRef = useRef();
   const sphereShaderRef = useRef();
   const [match, param] = useRoute("/");

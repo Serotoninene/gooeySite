@@ -13,7 +13,8 @@ export default function HPScene(props) {
         enableDamping={false}
         enableRotate={false}
       />
-      <DistortedSphere {...props} /> <BackgroundSphere {...props} />
+      <DistortedSphere {...props} />
+      <BackgroundSphere {...props} />
     </>
   );
 }

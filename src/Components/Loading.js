@@ -56,7 +56,6 @@ export default function Loading() {
           transition={{
             duration: 0.5,
           }}
-          key="loading"
           className="flex justify-center align-center"
         >
           <div className="logoContainer">

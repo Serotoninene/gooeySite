@@ -10,17 +10,18 @@ export default function ScrollIndicator() {
   const lineRef = useRef();
 
   useEffect(() => {
-    gsap.to(lineRef.current, {
+    const tl = gsap.timeline();
+    tl.to(lineRef.current, {
       opacity: 1,
       delay: 1.5,
     });
-    gsap.to(lineRef.current, {
+    tl.to(lineRef.current, {
       y: 25,
       scaleY: 0,
       scrollTrigger: {
-        trigger: "#Homepage",
+        startTrigger: "#Homepage",
         start: "top top",
-        end: "bottom-=20% bottom", // correct end
+        end: "bottom bottom", // correct end
         scrub: true,
         onLeave: () => {
           setScrolling(false);
@@ -30,16 +31,16 @@ export default function ScrollIndicator() {
         },
       },
     });
+
+    return () => {
+      tl.kill();
+    };
   }, []);
 
   return (
     <div id="ScrollIndicator" className="fixed flex-column align-center">
       <p>
-        {/* {scrolling ? ( */}
         <AnimatedLetters title="Scroll" delay={1.6} end={!scrolling} />
-        {/* ) : (
-          <AnimatedLetters title="Back" outAnimation trigger="#Homepage" />
-        )} */}
       </p>
       <div ref={lineRef} className="scrollLine"></div>
     </div>

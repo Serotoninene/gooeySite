@@ -23,7 +23,7 @@ export default function CanvasContainer(props) {
         ease: "easeIn",
       }}
       className="CanvasContainer fixed"
-      key="canvas"
+      key="l"
     >
       <Canvas camera={{ fov: 75, position: [0, 0, 7] }}>
         <CameraAnimation loading={loading} />

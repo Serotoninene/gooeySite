@@ -31,20 +31,20 @@ export default function Contact(props) {
       },
     });
 
-    tl.from(contactContainerRef.current, {
-      yPercent: 100,
-      opacity: 0,
-      duration: 0.5,
-    });
-    tl.from(
-      contactElements.current,
-      {
-        yPercent: 20,
-        opacity: 0,
-        stagger: 0.04,
-      },
-      "<0.1"
-    );
+    // tl.from(contactContainerRef.current, {
+    //   yPercent: 100,
+    //   opacity: 0,
+    //   duration: 0.5,
+    // });
+    // tl.from(
+    //   contactElements.current,
+    //   {
+    //     yPercent: 20,
+    //     opacity: 0,
+    //     stagger: 0.04,
+    //   },
+    //   "<0.1"
+    // );
   }, []);
 
   return (

@@ -82,7 +82,7 @@ export default function Navbar({ loading }) {
   }, [isDown, width]);
 
   return (
-    <motion.div ref={navRef} id="Navbar" className="fixed blur">
+    <div ref={navRef} id="Navbar" className="fixed blur">
       <div className="navbarContainer flex justify-between align-center">
         <div ref={logoRef} className="logoContainer">
           <img src={logo} alt="logo" />
@@ -101,6 +101,6 @@ export default function Navbar({ loading }) {
           ))}
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }

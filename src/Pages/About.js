@@ -21,6 +21,7 @@ export default function About(props) {
   const [match, params] = useRoute("/about");
   const [location, setLocation] = useLocation();
   const { width } = useWindowSize();
+  const anim = useRef;
 
   useEffect(() => {
     width < 775 ? setPhoneFormat(true) : setPhoneFormat(false);
@@ -39,10 +40,10 @@ export default function About(props) {
   }, [match]);
 
   return (
-    <AnimatePresence>
+    <>
       {location === props.path && (
         <motion.div
-          key="about"
+          key={location}
           initial={{
             opacity: 0,
           }}
@@ -133,6 +134,6 @@ export default function About(props) {
           )}
         </motion.div>
       )}
-    </AnimatePresence>
+    </>
   );
 }
