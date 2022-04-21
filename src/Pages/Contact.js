@@ -93,7 +93,7 @@ export default function Contact(props) {
                     ref={(e) => {
                       contactElements.current[2] = e;
                     }}
-                    htmlFor="fname"
+                    htmlFor="femail"
                   >
                     Email:
                   </label>
@@ -102,8 +102,8 @@ export default function Contact(props) {
                       contactElements.current[3] = e;
                     }}
                     type="email"
-                    id="fname"
-                    name="fname"
+                    id="femail"
+                    name="femail"
                     required
                   />
                 </div>
@@ -112,7 +112,7 @@ export default function Contact(props) {
                     ref={(e) => {
                       contactElements.current[4] = e;
                     }}
-                    htmlFor="fstory"
+                    htmlFor="fmessage"
                   >
                     Let's talk about:
                   </label>
