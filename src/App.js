@@ -31,31 +31,27 @@ function App() {
   }, []);
 
   return (
-    <>
-      <AnimatePresence exitBeforeEnter>
-        {loading ? (
-          <motion.div
-            exit={{
-              opacity: 0,
-            }}
-            key="loader"
-          >
-            <Loading loading={loading} setLoading={setLoading} />
-          </motion.div>
-        ) : (
-          <>
-            <CanvasContainer>
-              <HPScene data={data} />
-            </CanvasContainer>
-            <div id="MainContainer">
-              <Navbar loading={loading} />
-              <Homepage data={data} key="1" path="/" />
-              <About data={data} key="2" path="/about" />
-            </div>
-          </>
-        )}
-      </AnimatePresence>
-    </>
+    <AnimatePresence exitBeforeEnter>
+      <CanvasContainer loading={loading}>
+        <HPScene data={data} />
+      </CanvasContainer>
+      <div id="MainContainer">
+        <Navbar loading={loading} />
+        <Homepage loading={loading} data={data} key="1" path="/" />
+        <About loading={loading} data={data} key="2" path="/about" />
+      </div>
+
+      {loading && (
+        <motion.div
+          exit={{
+            opacity: 0,
+          }}
+          key="loader"
+        >
+          <Loading loading={loading} setLoading={setLoading} />
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }
 

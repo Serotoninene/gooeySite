@@ -6,6 +6,7 @@ import CameraAnimation from "../Camera/CameraAnimation";
 import { motion } from "framer-motion";
 
 export default function CanvasContainer(props) {
+  const { loading } = props;
   return (
     <motion.div
       initial={{
@@ -24,8 +25,8 @@ export default function CanvasContainer(props) {
       className="CanvasContainer fixed"
       key="canvas"
     >
-      <Canvas camera={{ fov: 75, position: [0, 0, 5] }}>
-        <CameraAnimation />
+      <Canvas camera={{ fov: 75, position: [0, 0, 7] }}>
+        <CameraAnimation loading={loading} />
         {/* <EffectComposer>
           <Bloom luminanceThreshold={0} luminanceSmoothing={0.9} height={300} />
         </EffectComposer> */}
