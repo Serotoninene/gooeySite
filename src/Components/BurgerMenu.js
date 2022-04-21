@@ -74,6 +74,7 @@ export default function BurgerMenu(props) {
 
   const tl = useRef(
     gsap.timeline({
+      paused: true,
       defaults: { ease: Power3.easeOut, duration: 1 },
     })
   );
@@ -100,8 +101,6 @@ export default function BurgerMenu(props) {
       },
       "<"
     );
-
-    tl.current.pause();
   }, []);
 
   useEffect(() => {

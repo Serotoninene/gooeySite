@@ -7,21 +7,22 @@
 
 @media screen and (max-width: 992px) {
   #SelectedWorks .mainTitle {
-    font-size: 2.5rem;
+    font-size: 3rem;
     line-height: 3rem;
   }
 }
 
 @media screen and (max-width: 768px) {
-  #SelectedWords .mainTitle {
-    font-size: 2rem;
+  #SelectedWorks .mainTitle {
+    font-size: 2.5rem;
     line-height: 2.5rem;
   }
 }
 
 @media screen and (max-width: 576px) {
-  #SelectedWords .mainTitle {
-    font-size: 1.6rem;
-    line-height: 2rem;
+  #SelectedWorks .mainTitle {
+    font-size: 2rem;
+    line-height: 2.5rem;
+    margin-bottom: 50px;
   }
 }

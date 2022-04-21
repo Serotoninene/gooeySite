@@ -13,6 +13,7 @@ import useScrollDirection from "../Utilitaries/Hooks/useScrollDirection";
 // Asset
 import logo from "../Assets/Logos/logo.svg";
 import useWindowSize from "../Utilitaries/Hooks/useWindowSize";
+import NavLink from "./NavLink";
 
 const navLinksArray = [
   {
@@ -41,7 +42,6 @@ export default function Navbar({ loading }) {
   const navRef = useRef();
   const logoRef = useRef();
   const navElements = useRef([]);
-
   const [match, params] = useRoute("/");
   const { width } = useWindowSize();
   const { isDown } = useScrollDirection();
@@ -91,31 +91,14 @@ export default function Navbar({ loading }) {
         <BurgerMenu navLinksArray={navLinksArray} />
         {/* Classic menu when window's wide enought */}
         <div className="navLinks  flex justify-between">
-          {navLinksArray.map((e, idx) =>
-            !e.href ? (
-              <Link to={e.link} key={idx}>
-                <div
-                  ref={(e) => {
-                    navElements.current[idx] = e;
-                  }}
-                  className="navLink"
-                >
-                  {e.title}
-                </div>
-              </Link>
-            ) : (
-              <a
-                key={idx}
-                ref={(e) => {
-                  navElements.current[idx] = e;
-                }}
-                href={e.href}
-                className="navLink"
-              >
-                {e.title}
-              </a>
-            )
-          )}
+          {navLinksArray.map((e, idx) => (
+            <NavLink
+              linkData={e}
+              key={idx}
+              navElements={navElements}
+              idx={idx}
+            />
+          ))}
         </div>
       </div>
     </motion.div>

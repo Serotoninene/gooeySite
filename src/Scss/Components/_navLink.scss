@@ -1,0 +1,24 @@
+#NavLink {
+  display: flex;
+  font-family: "Futura Bk";
+  font-size: 1.1rem;
+
+  .navLink {
+    cursor: pointer;
+    font-family: "Futura Bk";
+    font-size: 1.1rem;
+    margin-left: 70px;
+    transform: translate(0, -80px);
+    transition: font-weight ease-in 0.1s;
+
+    &:hover {
+      font-weight: bold;
+      color: #f5e1e1;
+    }
+  }
+
+  .navLink.active {
+    font-weight: bold;
+    color: #f5e1e1;
+  }
+}

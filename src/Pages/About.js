@@ -107,7 +107,7 @@ export default function About(props) {
                   <p>
                     I've been learning web development for 3 years now, focused
                     on reactjs for a year, here are some of the tech I love :
-                    reactjs, R3F, gsap, framer-motion, threejs.
+                    REACTJS, R3F, GSAP, FRAMER-MOTION, THREEJS.
                   </p>
                 </div>
               </div>

@@ -9,7 +9,7 @@ import "../Scss/style.scss";
 import useWindowSize from "../Utilitaries/Hooks/useWindowSize";
 
 export default function Project(props) {
-  const { i, img, title1, title2, url, titleColor } = props;
+  const { i, img, title1, title2, url, alt } = props;
   const [phoneFormat, setPhoneFormat] = useState(true);
 
   const projectRef = useRef();
@@ -61,7 +61,7 @@ export default function Project(props) {
         phoneFormat ? "" : "flex"
       } justify-between project${i}`}
     >
-      <div className="titleContainer ">
+      <div className="titleContainer">
         <h2 className={`projectTitle`}>
           <AnimatedLetters
             title={title1}
@@ -70,7 +70,7 @@ export default function Project(props) {
           />
           {title2 && (
             <span>
-              <br />
+              {" "}
               <AnimatedLetters
                 title={title2}
                 trigger={`.project${i}`}
@@ -82,7 +82,12 @@ export default function Project(props) {
       </div>
       <a href={url} className="">
         <div ref={imgContainerRef} className="projectPicture">
-          <img ref={imgRef} src={img} className={`img-fluid img${i}`}></img>
+          <img
+            ref={imgRef}
+            src={img}
+            className={`img-fluid img${i}`}
+            alt={alt}
+          ></img>
         </div>
       </a>
     </div>

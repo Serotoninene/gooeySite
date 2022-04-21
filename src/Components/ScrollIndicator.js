@@ -20,7 +20,7 @@ export default function ScrollIndicator() {
       scrollTrigger: {
         trigger: "#Homepage",
         start: "top top",
-        end: "bottom bottom", // correct end
+        end: "bottom-=20% bottom", // correct end
         scrub: true,
         onLeave: () => {
           setScrolling(false);
@@ -31,10 +31,15 @@ export default function ScrollIndicator() {
       },
     });
   }, []);
+
   return (
     <div id="ScrollIndicator" className="fixed flex-column align-center">
       <p>
+        {/* {scrolling ? ( */}
         <AnimatedLetters title="Scroll" delay={1.6} end={!scrolling} />
+        {/* ) : (
+          <AnimatedLetters title="Back" outAnimation trigger="#Homepage" />
+        )} */}
       </p>
       <div ref={lineRef} className="scrollLine"></div>
     </div>

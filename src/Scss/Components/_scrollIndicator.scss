@@ -3,6 +3,7 @@
   right: 20px;
   cursor: pointer;
   transition: transform 0.2s ease-out;
+  transform: scale(1.1);
 
   p span {
     font-family: "Futura Bk";
@@ -16,8 +17,17 @@
     border-radius: 12px;
     background-color: white;
   }
+}
 
-  &:hover {
-    transform: scale(1.1);
+@media screen and (min-width: 1400px) {
+  #ScrollIndicator {
+    right: 40px;
+    bottom: 50px;
+    p {
+      font-size: 1.5rem;
+    }
+    .scrollLine {
+      height: 70px;
+    }
   }
 }
