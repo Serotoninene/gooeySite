@@ -24,6 +24,8 @@ export default function NavLink(props) {
           ref={(e) => {
             navElements.current[idx] = e;
           }}
+          target="_blank"
+          rel="noreferrer"
           href={linkData.href}
           className="navLink"
         >

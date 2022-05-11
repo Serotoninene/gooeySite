@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 // Gsap
 import gsap, { Power1 } from "gsap";
 import { ScrollTrigger } from "gsap/all";
+// Wouter
+import { Link } from "wouter";
 // Component
 import AnimatedLetters from "./AnimatedLetters";
 import "../Scss/style.scss";
@@ -9,7 +11,7 @@ import "../Scss/style.scss";
 import useWindowSize from "../Utilitaries/Hooks/useWindowSize";
 
 export default function Project(props) {
-  const { i, img, title1, title2, url, alt } = props;
+  const { i, img, title1, title2, url, alt, markers } = props;
   const [phoneFormat, setPhoneFormat] = useState(true);
 
   const projectRef = useRef();
@@ -28,8 +30,9 @@ export default function Project(props) {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: projectRef.current,
-        start: "top bottom",
+        start: "top bottom-=40%",
         end: "bottom center",
+        markers: markers ?? false,
         id: `.project${i}`,
         toggleActions: "play none none reverse",
       },
@@ -52,7 +55,7 @@ export default function Project(props) {
       },
       "<"
     );
-  }, []);
+  });
 
   return (
     <div
@@ -80,7 +83,7 @@ export default function Project(props) {
           )}
         </h2>
       </div>
-      <a href={url} className="">
+      <Link to="/project">
         <div ref={imgContainerRef} className="projectPicture">
           <img
             ref={imgRef}
@@ -89,7 +92,7 @@ export default function Project(props) {
             alt={alt}
           ></img>
         </div>
-      </a>
+      </Link>
     </div>
   );
 }

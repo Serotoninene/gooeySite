@@ -5,39 +5,42 @@
   left: 0;
   background-color: rgb(21, 29, 34);
   z-index: 11;
+  transition-property: opacity;
+  transition-timing-function: ease-out;
 
   .logoContainer {
     width: 55px;
   }
 
-  .loadingTypo {
-    width: 350px;
-    top: calc(50vh - 175px);
-    left: calc(50vw - 175px);
+  .animateFlicker {
+    animation: flickerAnimation 1s infinite;
+  }
+}
+
+@keyframes flickerAnimation {
+  /* flame pulses */
+  0% {
     opacity: 0;
   }
-
-  @media screen and (min-width: 1400px) {
-    .logoContainer {
-      width: 75px;
-    }
-
-    .loadingTypo {
-      width: 500px;
-      top: calc(50vh - 250px);
-      left: calc(50vw - 250px);
-    }
+  17% {
+    opacity: 0.5;
   }
+  25% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 
-  @media screen and (max-width: 576px) {
-    .logoContainer {
-      width: 35px;
-    }
+@media screen and (min-width: 1400px) {
+  #Loading .logoContainer {
+    width: 75px;
+  }
+}
 
-    .loadingTypo {
-      width: 250px;
-      top: calc(50vh - 125px);
-      left: calc(50vw - 125px);
-    }
+@media screen and (max-width: 576px) {
+  #Loading .logoContainer {
+    width: 35px;
   }
 }

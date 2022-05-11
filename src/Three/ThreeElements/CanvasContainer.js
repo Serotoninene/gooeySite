@@ -26,7 +26,7 @@ export default function CanvasContainer(props) {
       key="l"
     >
       <Canvas camera={{ fov: 75, position: [0, 0, 7] }}>
-        <CameraAnimation loading={loading} />
+        <CameraAnimation />
         {/* <EffectComposer>
           <Bloom luminanceThreshold={0} luminanceSmoothing={0.9} height={300} />
         </EffectComposer> */}

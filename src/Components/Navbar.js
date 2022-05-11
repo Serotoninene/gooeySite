@@ -49,9 +49,8 @@ export default function Navbar({ loading }) {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     const tl = gsap.timeline({
-      paused: true,
+      // paused: true,
     });
-    loading === false && tl.play();
 
     tl.to([logoRef.current, navElements.current], {
       y: 0,

@@ -11,37 +11,35 @@ import Contact from "../Pages/Contact";
 import ScrollIndicator from "../Components/ScrollIndicator";
 
 export default function Homepage(props) {
-  const { data } = props;
   const [match, params] = useRoute("/");
   const [location, setLocation] = useLocation();
-
   return (
     <>
-      {/* {location === props.path && ( */}
-      <motion.div
-        id="Homepage"
-        key={location}
-        initial={{
-          opacity: 0,
-        }}
-        animate={{
-          opacity: 1,
-        }}
-        exit={{
-          opacity: 0,
-        }}
-        transition={{
-          duration: 0.5,
-          ease: "easeIn",
-        }}
-      >
-        <ScrollIndicator />
-        <Herobanner />
-        <Presentation />
-        <SelectedWorks />
-        <Contact />
-      </motion.div>
-      {/* )} */}
+      {location === props.path && (
+        <motion.div
+          id="Homepage"
+          key={location}
+          initial={{
+            opacity: 0,
+          }}
+          animate={{
+            opacity: 1,
+          }}
+          exit={{
+            opacity: 0,
+          }}
+          transition={{
+            duration: 0.5,
+            ease: "easeIn",
+          }}
+        >
+          <ScrollIndicator />
+          <Herobanner />
+          <Presentation />
+          <SelectedWorks />
+          <Contact />
+        </motion.div>
+      )}
     </>
   );
 }

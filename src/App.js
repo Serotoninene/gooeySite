@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-
 // Components
 import CanvasContainer from "./Three/ThreeElements/CanvasContainer";
 import HPScene from "./Three/ThreeScenes/HPScene";
@@ -7,12 +6,19 @@ import Navbar from "./Components/Navbar";
 import Homepage from "./Pages/Homepage";
 import About from "./Pages/About";
 import Loading from "./Components/Loading";
+import ProductPresentation from "./Pages/ProductPresentation";
+// framer-motion
+import { AnimatePresence } from "framer-motion";
+// Utils
+import useFontFaceObserver from "use-font-face-observer";
 // Styling
 import "./Scss/style.scss";
-import { AnimatePresence, motion } from "framer-motion";
 
 function App() {
   const [loading, setLoading] = useState(true);
+  const isFontListLoaded = useFontFaceObserver([
+    { family: `MonumentExtended` },
+  ]);
 
   // Data for the debugUi mothafucka
   const [data, setData] = useState({
@@ -25,31 +31,25 @@ function App() {
   });
 
   useEffect(() => {
-    setInterval(() => {
-      setLoading(false);
-    }, 2000);
-  }, []);
+    !isFontListLoaded && setLoading(false);
+  });
 
   return (
     <AnimatePresence exitBeforeEnter>
-      <CanvasContainer loading={loading} key="canvasContainer">
-        <HPScene data={data} />
-      </CanvasContainer>
-      <div id="MainContainer">
-        <Navbar loading={loading} />
-        <Homepage loading={loading} data={data} key="1" path="/" />
-        <About loading={loading} data={data} key="2" path="/about" />
-      </div>
-
-      {loading && (
-        <motion.div
-          exit={{
-            opacity: 0,
-          }}
-          key="loader"
-        >
-          <Loading loading={loading} setLoading={setLoading} />
-        </motion.div>
+      {loading ? (
+        <Loading key="loading" />
+      ) : (
+        <>
+          <CanvasContainer key="canvasContainer">
+            <HPScene data={data} />
+          </CanvasContainer>
+          <div id="MainContainer">
+            <Navbar />
+            <Homepage data={data} key="1" path="/" />
+            <About data={data} key="2" path="/about" />
+            <ProductPresentation key="3" path="/project" />
+          </div>
+        </>
       )}
     </AnimatePresence>
   );

@@ -21,7 +21,6 @@ export default function About(props) {
   const [match, params] = useRoute("/about");
   const [location, setLocation] = useLocation();
   const { width } = useWindowSize();
-  const anim = useRef;
 
   useEffect(() => {
     width < 775 ? setPhoneFormat(true) : setPhoneFormat(false);
