@@ -73,7 +73,6 @@ export default function Project(props) {
           />
           {title2 && (
             <span>
-              {" "}
               <AnimatedLetters
                 title={title2}
                 trigger={`.project${i}`}
@@ -83,7 +82,7 @@ export default function Project(props) {
           )}
         </h2>
       </div>
-      <Link to="/project">
+      <Link to={`/project/${i}`}>
         <div ref={imgContainerRef} className="projectPicture">
           <img
             ref={imgRef}

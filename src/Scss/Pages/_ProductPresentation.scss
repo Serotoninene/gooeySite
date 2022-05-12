@@ -1,4 +1,82 @@
 #ProductPresentation {
-  background-color: saddlebrown;
-  z-index: 8;
+  background-color: white;
+  color: black;
+  height: calc(100vh - 70px);
+  overflow-y: scroll;
+  position: fixed;
+  top: 70px;
+
+  .hero {
+    height: calc(57vh - 70px);
+    padding: 54px 100px 60px 100px;
+
+    p {
+      font-size: 1.15rem;
+      font-family: "Futura Light";
+    }
+
+    .bio {
+      grid-column-start: span 6;
+      line-height: 146%;
+    }
+
+    .infos {
+      grid-column: 8 / -1;
+      p {
+        margin-top: 10px;
+      }
+    }
+  }
+
+  .image {
+    height: 43vh;
+    display: block;
+    width: 100%;
+    background-position: cover;
+    background-size: contain;
+  }
+
+  .main {
+    margin: 80px 100px 0 100px;
+    .legende {
+      grid-column: 1 / 4;
+      font-family: "Futura Light";
+      font-size: 0.9rem;
+      line-height: 145%;
+    }
+    .figure {
+      grid-column: 5 / -1;
+      margin-bottom: 100px;
+    }
+  }
+
+  .footer {
+    padding: 0 100px 30px 100px;
+    .conclusion {
+      font-family: "Futura Bk";
+      font-size: 1.4rem;
+      line-height: 150%;
+      margin-bottom: 32px;
+    }
+    .line {
+      width: 100%;
+      height: 1px;
+      background-color: black;
+      margin-bottom: 56px;
+    }
+
+    .buttons {
+      p {
+        margin: 0 15px;
+        font-size: 1.15rem;
+        font-family: "Futura Light";
+        cursor: pointer;
+      }
+      .smallLine {
+        height: 1px;
+        width: 40px;
+        background-color: black;
+      }
+    }
+  }
 }

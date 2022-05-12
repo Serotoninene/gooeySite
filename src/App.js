@@ -15,7 +15,7 @@ import useFontFaceObserver from "use-font-face-observer";
 import "./Scss/style.scss";
 
 function App() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const isFontListLoaded = useFontFaceObserver([
     { family: `MonumentExtended` },
   ]);
@@ -47,7 +47,7 @@ function App() {
             <Navbar />
             <Homepage data={data} key="1" path="/" />
             <About data={data} key="2" path="/about" />
-            <ProductPresentation key="3" path="/project" />
+            <ProductPresentation key="3" path="/project/:id" />
           </div>
         </>
       )}

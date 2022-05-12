@@ -14,7 +14,7 @@ export default function Homepage(props) {
   const [match, params] = useRoute("/");
   const [location, setLocation] = useLocation();
   return (
-    <>
+    <AnimatePresence>
       {location === props.path && (
         <motion.div
           id="Homepage"
@@ -40,6 +40,6 @@ export default function Homepage(props) {
           <Contact />
         </motion.div>
       )}
-    </>
+    </AnimatePresence>
   );
 }

@@ -39,7 +39,7 @@ export default function About(props) {
   }, [match]);
 
   return (
-    <>
+    <AnimatePresence>
       {location === props.path && (
         <motion.div
           key={location}
@@ -133,6 +133,6 @@ export default function About(props) {
           )}
         </motion.div>
       )}
-    </>
+    </AnimatePresence>
   );
 }
