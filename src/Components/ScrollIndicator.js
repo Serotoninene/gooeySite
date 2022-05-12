@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 // gsap
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/all";
 // components
 import AnimatedLetters from "./AnimatedLetters";
 

@@ -2,6 +2,7 @@
   background-color: white;
   color: black;
   height: calc(100vh - 70px);
+  width: 100%;
   overflow-y: scroll;
   position: fixed;
   top: 70px;
@@ -12,6 +13,10 @@
 
     p {
       font-size: 1.15rem;
+      font-family: "Futura Light";
+    }
+
+    .underline {
       font-family: "Futura Light";
     }
 
@@ -32,8 +37,6 @@
     height: 43vh;
     display: block;
     width: 100%;
-    background-position: cover;
-    background-size: contain;
   }
 
   .main {
@@ -76,6 +79,137 @@
         height: 1px;
         width: 40px;
         background-color: black;
+      }
+    }
+  }
+
+  // Media queries baby
+  @media screen and (min-width: 1400px) {
+    h1 {
+      font-size: 5rem;
+    }
+    .hero {
+      width: 1280px;
+      margin: 0 auto;
+      padding: 56px 0;
+
+      p {
+        font-size: 1.5rem;
+      }
+    }
+
+    .main {
+      width: 1280px;
+      margin: 80px auto;
+
+      .legende {
+        font-size: 1.3rem;
+      }
+    }
+
+    .footer {
+      width: 1280px;
+      margin: 30px auto;
+      padding: 0;
+    }
+  }
+
+  @media screen and (max-width: 992px) {
+    h1 {
+      font-size: 3rem;
+    }
+
+    .hero {
+      p {
+        font-size: 1.05rem;
+      }
+    }
+  }
+
+  @media screen and (max-width: 775px) {
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    .hero {
+      padding: 56px 56px 60px 56px;
+
+      .bio {
+        grid-column-start: span 12;
+        margin-bottom: 10px;
+      }
+
+      .infos {
+        grid-column-start: span 12;
+      }
+    }
+
+    .main {
+      margin: 64px 56px 0 56px;
+      .legende {
+        grid-column: 1/-1;
+        order: 2;
+        margin-bottom: 64px;
+      }
+      .figure {
+        grid-column-start: span 12;
+        margin-bottom: 5px;
+        order: 1;
+      }
+    }
+
+    .footer {
+      padding: 0 56px 30px 56px;
+      .conclusion {
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  @media screen and (max-width: 580px) {
+    h1 {
+      font-size: 2rem;
+    }
+
+    .hero {
+      padding: 32px 8px 40px 8px;
+    }
+
+    .main {
+      margin: 32px 8px 0 8px;
+    }
+
+    .footer {
+      padding: 0 8px 32px 8px;
+
+      .conclusion {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  @media screen and (max-width: 425px) {
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    .main {
+      margin: 32px 8px 0 8px;
+    }
+
+    .footer {
+      padding: 0 8px 32px 8px;
+
+      .conclusion {
+        font-size: 0.9rem;
+      }
+
+      .line {
+        margin-bottom: 32px;
+      }
+
+      .buttons p {
+        font-size: 1rem;
       }
     }
   }

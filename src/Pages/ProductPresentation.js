@@ -34,17 +34,12 @@ export default function ProductPresentation(props) {
 
   useEffect(() => {
     gsap.registerPlugin(ScrollToPlugin);
-    return () => {
-      console.log("unmounting right ?");
-    };
   }, []);
 
   const scrollToTop = () => {
-    gsap.to(window, { duration: 0.5, scrollTo: -400 });
+    gsap.to("#ProductPresentation", { duration: 0, scrollTo: "min" });
   };
 
-  // OKay soooow I need to make dynamic routes, I don't exactly know how it
-  // works with wouter so maybe I should investigate
   return (
     <AnimatePresence>
       {match && (
@@ -68,66 +63,89 @@ export default function ProductPresentation(props) {
             ease: "easeOut",
           }}
         >
-          <div className="hero flex-column justify-between">
-            <h1>{data.projectTitle}</h1>
-            <div className="grid">
-              <p className="bio">{data.projectBio}</p>
-
-              <div className="infos flex-column justify-end">
-                <p>
-                  <a href="facebook.com">Website : {data.projectWebsite} </a>
-                </p>
-                <p>Stack : {data.projectStack} </p>
-              </div>
-            </div>
-          </div>
-          <div
-            className="image"
-            style={{
-              backgroundImage: `url(${data.projectHeroImg})`,
-              backgroundSize: "cover",
-              // backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
+          <motion.div
+            key={`ProductContainer${params.id}`}
+            initial={{
+              x: "-100%",
+              opacity: 0,
             }}
-          ></div>
-          <div className="main">
-            {/* Fig 1 */}
-            {data.mainData.map((mainData, idx) => (
-              <div className="grid" key={idx}>
-                <div className="legende">{mainData.legende}</div>
-                <div className="figure">
-                  <img src={mainData.figure} className="img-fluid" />
+            animate={{
+              opacity: 1,
+              x: 0,
+            }}
+            exit={{
+              x: "100%",
+              opacity: 0,
+            }}
+            transition={{
+              duration: 0.2,
+              ease: "easeOut",
+            }}
+          >
+            <div className="hero flex-column justify-between">
+              <h1>{data.projectTitle}</h1>
+              <div className="grid">
+                <p className="bio">{data.projectBio}</p>
+
+                <div className="infos flex-column justify-end">
+                  <p>
+                    <a href="facebook.com">
+                      Website :{" "}
+                      <span className="underline"> {data.projectWebsite} </span>
+                    </a>
+                  </p>
+                  <p>Stack : {data.projectStack} </p>
                 </div>
               </div>
-            ))}
-          </div>
-          <div className="footer">
-            <p className="conclusion">{data.conclusion}</p>
-            <div className="line"></div>
-            <div className="buttons flex justify-between">
-              {data.id === "0" ? (
-                <div></div>
-              ) : (
-                <Link to={`/project/${back}`}>
-                  <div className="back flex align-center">
-                    <div className="smallLine"></div>
-                    <p>Back</p>
-                  </div>
-                </Link>
-              )}
-
-              {data.id === "2" ? (
-                <div></div>
-              ) : (
-                <Link to={`/project/${next}`} onClick={() => scrollToTop()}>
-                  <div className="next flex align-center">
-                    <p>Next project</p>
-                    <div className="smallLine"></div>
-                  </div>
-                </Link>
-              )}
             </div>
-          </div>
+            <div
+              className="image"
+              onClick={scrollToTop()}
+              style={{
+                backgroundImage: `url(${data.projectHeroImg})`,
+                backgroundSize: "cover",
+                backgroundPositionX: "center",
+                backgroundRepeat: "no-repeat",
+              }}
+            ></div>
+            <div className="main">
+              {data.mainData.map((mainData, idx) => (
+                <div className="grid" key={idx}>
+                  <div className="legende">{mainData.legende}</div>
+                  <div className="figure">
+                    <img src={mainData.figure} className="img-fluid" />
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="footer">
+              <p className="conclusion">{data.conclusion}</p>
+              <div className="line"></div>
+              <div className="buttons flex justify-between">
+                {data.id === "0" ? (
+                  <div></div>
+                ) : (
+                  <Link to={`/project/${back}`}>
+                    <div className="back flex align-center">
+                      <div className="smallLine"></div>
+                      <p>Back</p>
+                    </div>
+                  </Link>
+                )}
+
+                {data.id === "2" ? (
+                  <div></div>
+                ) : (
+                  <Link to={`/project/${next}`} onClick={() => scrollToTop()}>
+                    <div className="next flex align-center">
+                      <p>Next project</p>
+                      <div className="smallLine"></div>
+                    </div>
+                  </Link>
+                )}
+              </div>
+            </div>
+          </motion.div>
         </motion.div>
       )}
     </AnimatePresence>
