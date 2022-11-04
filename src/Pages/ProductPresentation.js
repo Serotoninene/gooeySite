@@ -10,10 +10,10 @@ import { projectData } from "../data/projectData";
 // Variants
 const itemAnim = {
   enter: (isNextProject) => {
-    return { x: isNextProject ? -1000 : 1000, opacity: 0 };
+    return { x: isNextProject ? 1000 : -1000, opacity: 0 };
   },
   exit: (isNextProject) => {
-    return { x: isNextProject ? 1000 : -1000, opacity: 0 };
+    return { x: isNextProject ? -1000 : 1000, opacity: 0 };
   },
   animate: {
     opacity: 1,
