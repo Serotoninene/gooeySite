@@ -15,6 +15,9 @@ import eliott from "../Assets/Images/eliott.jpg";
 import useWindowSize from "../Utilitaries/Hooks/useWindowSize";
 import AnimatedPictures from "../Components/AnimatedPictures";
 
+const text =
+  "I've been learning web development for 3 years now, focused on reactjs for a year, here are some of the tech I love : REACTJS, NEXTJS, VERCEL, TYPESCRIPT, R3F, GSAP, FRAMER-MOTION, THREEJS.";
+
 export default function About(props) {
   const bottomParagraphRef = useRef();
   const [phoneFormat, setPhoneFormat] = useState(false);
@@ -104,11 +107,7 @@ export default function About(props) {
                   className="bottomParagraphContainer hidden"
                   ref={bottomParagraphRef}
                 >
-                  <p>
-                    I've been learning web development for 3 years now, focused
-                    on reactjs for a year, here are some of the tech I love :
-                    REACTJS, R3F, GSAP, FRAMER-MOTION, THREEJS.
-                  </p>
+                  <p>{text}</p>
                 </div>
               </div>
             </div>
@@ -122,11 +121,7 @@ export default function About(props) {
                   className="bottomParagraphContainer"
                   ref={bottomParagraphRef}
                 >
-                  <p>
-                    It is a long established fact that a reader will be
-                    distracted by the readable content of a page when looking at
-                    its layout.
-                  </p>
+                  <p>{text}</p>
                 </div>
               </div>
             </div>
