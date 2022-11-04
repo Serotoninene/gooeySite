@@ -7,6 +7,7 @@ import Homepage from "./Pages/Homepage";
 import About from "./Pages/About";
 import Loading from "./Components/Loading";
 import ProductPresentation from "./Pages/ProductPresentation";
+import Blog from "./Pages/Blog";
 // framer-motion
 import { AnimatePresence } from "framer-motion";
 // Utils
@@ -48,6 +49,7 @@ function App() {
             <Homepage data={data} key="1" path="/" />
             <About data={data} key="2" path="/about" />
             <ProductPresentation key="3" path="/project/:id" />
+            <Blog data={data} key="4" path="/blog" />
           </div>
         </>
       )}

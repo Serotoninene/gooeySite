@@ -31,6 +31,11 @@ const navLinksArray = [
     link: null,
     href: "https://www.linkedin.com/in/alexandre-pujol-333172b3/",
   },
+  // {
+  //   title: "Articles",
+  //   link: "/blog",
+  //   href: null,
+  // },
   {
     title: "Github",
     link: null,

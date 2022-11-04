@@ -89,7 +89,11 @@ export default function ProductPresentation(props) {
 
                 <div className="infos flex-column justify-end">
                   <p>
-                    <a href="facebook.com">
+                    <a
+                      href={`https://${data.projectWebsite}`}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       Website :{" "}
                       <span className="underline"> {data.projectWebsite} </span>
                     </a>

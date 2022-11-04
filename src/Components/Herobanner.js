@@ -1,9 +1,8 @@
-import { useEffect, useContext, useRef, useState, Suspense } from "react";
+import { useState } from "react";
 // Utilitaries
 import AnimatedWords from "./AnimatedWords";
 
 export default function () {
-  const herobanner = true;
   const [anim, setAnim] = useState(false);
 
   return (
@@ -14,7 +13,7 @@ export default function () {
           delay={1}
           anim={anim}
           setAnim={setAnim}
-          herobanner
+          herobanner={true}
         />
       </h1>
     </div>

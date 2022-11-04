@@ -1,6 +1,6 @@
 import React from "react";
 // Wouter
-import { useLocation, useRoute } from "wouter";
+import { useLocation } from "wouter";
 // Framer motion
 import { AnimatePresence, motion } from "framer-motion";
 // Components
@@ -11,8 +11,7 @@ import Contact from "../Pages/Contact";
 import ScrollIndicator from "../Components/ScrollIndicator";
 
 export default function Homepage(props) {
-  const [match, params] = useRoute("/");
-  const [location, setLocation] = useLocation();
+  const [location] = useLocation();
   return (
     <AnimatePresence>
       {location === props.path && (

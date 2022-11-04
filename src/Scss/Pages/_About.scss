@@ -31,12 +31,16 @@
 
 @media screen and (min-width: 1440px) {
   #About {
+    h1 {
+      width: 700px;
+    }
+
     .picture {
       width: 150px;
       height: 150px;
     }
     .textContainer h2 {
-      font-size: 5.5rem;
+      font-size: 4rem;
       line-height: 7rem;
     }
 
@@ -51,11 +55,6 @@
     .picture {
       width: 200px;
       height: 200px;
-    }
-
-    .textContainer h2 {
-      font-size: 6.5rem;
-      line-height: 8rem;
     }
 
     .bottomParagraphContainer {
