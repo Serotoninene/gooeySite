@@ -20,7 +20,7 @@ export default function SelectedWorks() {
       </h2>
 
       <Project
-        i={1}
+        i={0}
         img={serotoninene}
         title1="Serotoninene"
         alt="Homepage of the Serotoninene's website"
@@ -28,7 +28,7 @@ export default function SelectedWorks() {
       />
 
       <Project
-        i={2}
+        i={1}
         img={perceptImagery}
         title1="Percept"
         title2="Imagery"
@@ -36,7 +36,7 @@ export default function SelectedWorks() {
         url="http://perceptimagery.alexandrepujol.com/"
       />
       <Project
-        i={0}
+        i={2}
         img={tienot}
         title1="tienot_no"
         title2="_aware"
