@@ -5,7 +5,7 @@ import gsap from "gsap";
 import { ScrollToPlugin } from "gsap/all";
 import { AnimatePresence, motion } from "framer-motion";
 // Data
-import { projectData } from "../data/projectData";
+import projectData from "../data/projectData";
 
 // Variants
 const itemAnim = {
