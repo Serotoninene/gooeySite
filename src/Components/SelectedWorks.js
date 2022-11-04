@@ -7,8 +7,16 @@ import AnimatedWords from "../Components/AnimatedWords";
 import tienot from "../Assets/Images/tienot_no_aware-min.png";
 import serotoninene from "../Assets/Images/serotoninene-min.png";
 import perceptImagery from "../Assets/Images/perceptImagery-min.png";
+import salinger from "../Assets/Images/salinger-min.png";
 
 const projects = [
+  {
+    img: salinger,
+    title1: "Salinger",
+    title2: "my hero",
+    alt: "Homepage of the Salinger-you're-my-hero's website",
+    url: "https://salinger-my-hero.vercel.app/",
+  },
   {
     img: serotoninene,
     title1: "Serotoninene",
