@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Link, useRoute } from "wouter";
 import gsap from "gsap";
 import { ScrollToPlugin } from "gsap/all";
@@ -21,6 +21,21 @@ import perceptFigure1 from "../Assets/Projects/Percept/sprie.png";
 import perceptFigure2 from "../Assets/Projects/Percept/we_are.png";
 import perceptFigure3 from "../Assets/Projects/Percept/exploring.png";
 
+// Variants
+const itemAnim = {
+  enter: (isNextProject) => {
+    return { x: isNextProject ? -1000 : 1000, opacity: 0 };
+  },
+  exit: (isNextProject) => {
+    return { x: isNextProject ? 1000 : -1000, opacity: 0 };
+  },
+  animate: {
+    opacity: 1,
+    x: 0,
+  },
+  transition: { duration: 0.2, ease: "easeOut" },
+};
+
 export default function ProductPresentation(props) {
   const [match, params] = useRoute("/project/:id");
   let data = null;
@@ -31,6 +46,8 @@ export default function ProductPresentation(props) {
     next = parseInt(data.id) < 2 ? parseInt(data.id) + 1 : 2;
     back = parseInt(data.id) > 0 ? parseInt(data.id) - 1 : 0;
   }
+
+  const [isNextProject, setIsNextProject] = useState(false);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollToPlugin);
@@ -63,93 +80,99 @@ export default function ProductPresentation(props) {
             ease: "easeOut",
           }}
         >
-          <motion.div
-            key={`ProductContainer${params.id}`}
-            initial={{
-              x: "-100%",
-              opacity: 0,
-            }}
-            animate={{
-              opacity: 1,
-              x: 0,
-            }}
-            exit={{
-              x: "100%",
-              opacity: 0,
-            }}
-            transition={{
-              duration: 0.2,
-              ease: "easeOut",
-            }}
-          >
-            <div className="hero flex-column justify-between">
-              <h1>{data.projectTitle}</h1>
-              <div className="grid">
-                <p className="bio">{data.projectBio}</p>
+          <AnimatePresence exitBeforeEnter custom={isNextProject}>
+            <motion.div
+              key={`ProductContainer${params.id}`}
+              custom={isNextProject}
+              variants={itemAnim}
+              initial="enter"
+              animate="animate"
+              exit="exit"
+              transition="transition"
+            >
+              <div className="hero flex-column justify-between">
+                <h1>{data.projectTitle}</h1>
+                <div className="grid">
+                  <p className="bio">{data.projectBio}</p>
 
-                <div className="infos flex-column justify-end">
-                  <p>
-                    <a
-                      href={`https://${data.projectWebsite}`}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      Website :{" "}
-                      <span className="underline"> {data.projectWebsite} </span>
-                    </a>
-                  </p>
-                  <p>Stack : {data.projectStack} </p>
-                </div>
-              </div>
-            </div>
-            <div
-              className="image"
-              onClick={scrollToTop()}
-              style={{
-                backgroundImage: `url(${data.projectHeroImg})`,
-                backgroundSize: "cover",
-                backgroundPositionX: "center",
-                backgroundRepeat: "no-repeat",
-              }}
-            ></div>
-            <div className="main">
-              {data.mainData.map((mainData, idx) => (
-                <div className="grid" key={idx}>
-                  <div className="legende">{mainData.legende}</div>
-                  <div className="figure">
-                    <img src={mainData.figure} className="img-fluid" />
+                  <div className="infos flex-column justify-end">
+                    <p>
+                      <a
+                        href={`https://${data.projectWebsite}`}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        Website :{" "}
+                        <span className="underline">
+                          {" "}
+                          {data.projectWebsite}{" "}
+                        </span>
+                      </a>
+                    </p>
+                    <p>Stack : {data.projectStack} </p>
                   </div>
                 </div>
-              ))}
-            </div>
-            <div className="footer">
-              <p className="conclusion">{data.conclusion}</p>
-              <div className="line"></div>
-              <div className="buttons flex justify-between">
-                {data.id === "0" ? (
-                  <div></div>
-                ) : (
-                  <Link to={`/project/${back}`}>
-                    <div className="back flex align-center">
-                      <div className="smallLine"></div>
-                      <p>Back</p>
-                    </div>
-                  </Link>
-                )}
-
-                {data.id === "2" ? (
-                  <div></div>
-                ) : (
-                  <Link to={`/project/${next}`} onClick={() => scrollToTop()}>
-                    <div className="next flex align-center">
-                      <p>Next project</p>
-                      <div className="smallLine"></div>
-                    </div>
-                  </Link>
-                )}
               </div>
-            </div>
-          </motion.div>
+              <div
+                className="image"
+                onClick={scrollToTop()}
+                style={{
+                  backgroundImage: `url(${data.projectHeroImg})`,
+                  backgroundSize: "cover",
+                  backgroundPositionX: "center",
+                  backgroundRepeat: "no-repeat",
+                }}
+              ></div>
+              <div className="main">
+                {data.mainData.map((mainData, idx) => (
+                  <div className="grid" key={idx}>
+                    <div className="legende">{mainData.legende}</div>
+                    <div className="figure">
+                      <img src={mainData.figure} className="img-fluid" />
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="footer">
+                <p className="conclusion">{data.conclusion}</p>
+                <div className="line"></div>
+                <div className="buttons flex justify-between">
+                  {data.id === "0" ? (
+                    <div></div>
+                  ) : (
+                    <Link
+                      to={`/project/${back}`}
+                      onClick={() => {
+                        setIsNextProject(false);
+                      }}
+                    >
+                      <div className="back flex align-center">
+                        <div className="smallLine"></div>
+                        <p>Back</p>
+                      </div>
+                    </Link>
+                  )}
+
+                  {data.id === "2" ? (
+                    <div></div>
+                  ) : (
+                    <Link
+                      to={`/project/${next}`}
+                      onClick={() => {
+                        setIsNextProject(true);
+                        scrollToTop();
+                      }}
+                    >
+                      <div className="next flex align-center">
+                        <p>Next project</p>
+                        <div className="smallLine"></div>
+                      </div>
+                    </Link>
+                  )}
+                </div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
         </motion.div>
       )}
     </AnimatePresence>
