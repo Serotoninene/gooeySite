@@ -13,27 +13,37 @@ import perceptHero from "../Assets/Projects/Percept/HeroImg.png";
 import perceptFigure1 from "../Assets/Projects/Percept/sprie.png";
 import perceptFigure2 from "../Assets/Projects/Percept/we_are.png";
 import perceptFigure3 from "../Assets/Projects/Percept/exploring.png";
+// Salinger 
+import salingerHero from "../Assets/Projects/salinger/salingerHero.png"
+import salingerFigure1 from "../Assets/Projects/salinger/salingerFigure1.png"
+import salingerFigure2 from "../Assets/Projects/salinger/salingerFigure2.png"
+import salingerFigure3 from "../Assets/Projects/salinger/salingerFigure3.png"
+import salingerFigure4 from "../Assets/Projects/salinger/salingerFigure4.png"
 
 const projectData = [{
     projectTitle: "Salinger my hero",
-    projectBio: "Serotoninene is my illustrator alter-ego, I’ve been doing illustrations for few years now and wanted a small e-commerce website. I used this opportunity to learn Threejs, react-three-fiber and custom shaders and how to implement stripe.",
-    projectHeroImg: serotonineHero,
-    projectWebsite: "serotoninene.alexandrepujol.com",
-    projectStack: "ReactJs, Gsap, Threejs, React-Three-Fiber, Scss, Figma",
+    projectBio: "Salinger my hero is the project I need to put to use the quote I write all the time, it was also the opportunity of developping a true backend with typesafety and authentication + a front-end with cool animations and parallaxes.",
+    projectHeroImg: salingerHero,
+    projectWebsite: "salinger-my-hero.vercel.app",
+    projectStack: "NextJs, Framer-motion, Prisma, Trpc, PlanetScale, NextAuth, Figma",
     mainData: [{
-        legende: "While developping this website, I really wanted to start iterate with 3D and ThreeJs, react-three-fiber. The waving flag on the herobanner is made with custom shaders and the illustration page is made with react-three-fiber. The scene for mobile is also totally different than the one on larger screen.",
-        figure: serotoFigure1,
+        legende: "On the front-end side of this website, I decided to work with framer-motion to handle the animations, parallaxes and page transitions. To this day it's my favourite js animation library as it is made especially for react and offers great performance and possibilities.",
+        figure: salingerFigure1,
       },
       {
-        legende: "I also implemented stripe, through the most minimalist back-end I could have, using heroku for the deployment.",
-        figure: serotoFigure2,
+        legende: "On the about page I really enjoyed playing with scroll triggered animations. Linking the animation directly to the scrollbar, something that I was used to do with gsap but never did with framer-motion. Another thing I had never fully managed to successfully implement was a smooth scroll. The scroll on the website isn't made by the browser but by me and framer-motion.",
+        figure: salingerFigure2,
       },
       {
-        legende: "Willing to try somethng new, I also tested wouter instead of react-router-dom. Because it is not constrained by context, wouter’s links will work inside the canvas.",
-        figure: serotoFigure3,
+        legende: "The real challenge was on the back-end side, as I wanted the whole website to be dynamic. I've use planetscale as my serverless database and discovered the great tools of prisma and trpc to create typesafe ORM and API. I've also used nextAuth to create a simple and passwordless authentication, using GitHub provider. It also made easy to get back the session object on the client side to use to allow access or not to the admin page for instance to the user.",
+        figure: salingerFigure3,
+      },
+      {
+        legende: "The website is totally dynamic and I can add, delete or update the books, the authors, or the quotes. I also used for the first time tailwindcss and was blown away by its simplicity and the major improvement of speed it added to the developent.",
+        figure: salingerFigure4,
       },
     ],
-    conclusion: "This project took me longer than I expected, having to make iteration after iteration to find what I really wanted, there is still room for improvement but I find myself quite deeply attached to it. It’s also the first time I could implement 3D in a website and was super impressed by all the possibilities offered by that new technology (thanks Bruno Simon for the amazing course). ",
+    conclusion: "This project was a great challenge as I took care of every part of it, from its design on Figma, to the back-end with nextJs, prisma and trpc; passing through the front-end, with framer-motion and tailwindcss but I'm glad I managed make it work and I'am super pleased of the final product.",
   },
   {
     projectTitle: "Serotoninene",
