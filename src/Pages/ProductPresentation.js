@@ -10,10 +10,10 @@ import projectData from "../data/projectData";
 // Variants
 const itemAnim = {
   enter: (isNextProject) => {
-    return { x: isNextProject ? 1000 : -1000, opacity: 0 };
+    return { x: isNextProject ? "100%" : "-100%", opacity: 0 };
   },
   exit: (isNextProject) => {
-    return { x: isNextProject ? -1000 : 1000, opacity: 0 };
+    return { x: isNextProject ? "-100%" : "100%", opacity: 0 };
   },
   animate: {
     opacity: 1,
@@ -29,7 +29,10 @@ export default function ProductPresentation(props) {
   let back = null;
   if (match) {
     data = projectData.find((project) => project.id === params.id);
-    next = parseInt(data.id) < 2 ? parseInt(data.id) + 1 : 2;
+    next =
+      parseInt(data.id) < projectData.length
+        ? parseInt(data.id) + 1
+        : projectData.length - 1;
     back = parseInt(data.id) > 0 ? parseInt(data.id) - 1 : 0;
   }
 
