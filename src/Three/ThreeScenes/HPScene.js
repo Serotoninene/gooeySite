@@ -5,6 +5,9 @@ import { OrbitControls } from "@react-three/drei";
 import DistortedSphere from "../ThreeElements/DistortedSphere";
 import BackgroundSphere from "../ThreeElements/BackgroundSphere";
 
+import { Bloom, EffectComposer, Noise } from "@react-three/postprocessing";
+import { BlendFunction } from "postprocessing";
+
 export default function HPScene(props) {
   return (
     <>
@@ -13,6 +16,14 @@ export default function HPScene(props) {
         enableDamping={false}
         enableRotate={false}
       />
+      <EffectComposer>
+        <Noise
+          blendFunction={BlendFunction.OVERLAY}
+          premultiply
+          opacity={0.5}
+        />
+      </EffectComposer>
+
       <DistortedSphere {...props} />
       <BackgroundSphere {...props} />
     </>

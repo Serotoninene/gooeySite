@@ -99,6 +99,7 @@ export default function DistortedSphere() {
           <distortedMaterial
             ref={sphereShaderRef}
             uniforms-uCube-value={texture}
+            toneMapped={false}
             // uniforms-uDistortionIntensity-value={data.uDistortionIntensity}
             // uniforms-uDistortionFrequency-value={data.uDistortionFrequency}
           />
