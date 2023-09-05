@@ -21,7 +21,7 @@ function App() {
     { family: `MonumentExtended` },
   ]);
 
-  // Data for the debugUi mothafucka
+  // Data for the debugUi
   const [data, setData] = useState({
     uColor1: "#3D6488",
     uColor2: "#3D6488",
