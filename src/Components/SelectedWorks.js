@@ -1,6 +1,3 @@
-import React from "react";
-
-// Component
 import Project from "./Project";
 import AnimatedWords from "../Components/AnimatedWords";
 // Assets
@@ -8,8 +5,32 @@ import tienot from "../Assets/Images/tienot_no_aware-min.png";
 import serotoninene from "../Assets/Images/serotoninene-min.png";
 import perceptImagery from "../Assets/Images/perceptImagery-min.png";
 import salinger from "../Assets/Images/salinger-min.png";
+import virgile from "../Assets/Images/virgile-min.png";
+import avaa from "../Assets/Images/avaa-architectes.png";
+import simon from "../Assets/Images/simonHero.png";
 
 const projects = [
+  {
+    img: simon,
+    title1: "Simon",
+    title2: "Eychenne",
+    alt: "Homepage of Simon Eychenne's portfolio",
+    url: "www.simoneychenne.com/",
+  },
+  {
+    img: avaa,
+    title1: "Avaa",
+    title2: "Architectes",
+    alt: "Homepage of the avaa website",
+    url: "www.virgilehasselmann.com/",
+  },
+  {
+    img: virgile,
+    title1: "Virgile",
+    title2: "Hasselmann",
+    alt: "Homepage of the Virgile Hasselmann's website",
+    url: "https://virgilehasselmann.com/",
+  },
   {
     img: salinger,
     title1: "Salinger",
@@ -52,6 +73,7 @@ export default function SelectedWorks() {
 
       {projects.map((project, idx) => (
         <Project
+          key={project.url}
           i={idx}
           img={project.img}
           title1={project.title1}

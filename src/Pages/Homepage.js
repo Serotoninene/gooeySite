@@ -1,4 +1,3 @@
-import React from "react";
 // Wouter
 import { useLocation } from "wouter";
 // Framer motion
@@ -12,6 +11,7 @@ import ScrollIndicator from "../Components/ScrollIndicator";
 
 export default function Homepage(props) {
   const [location] = useLocation();
+
   return (
     <AnimatePresence>
       {location === props.path && (
