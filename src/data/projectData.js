@@ -28,8 +28,41 @@ import virgileLogin from "../Assets/Projects/virgile/login.png";
 // Avaa
 import avaaHero from "../Assets/Images/avaa-architectes.png";
 import avaaProject from "../Assets/Projects/avaa/project_page.png";
+// Simon's portfolio
+import simonHero from "../Assets/Images/simonHero.png";
+import photoWCaption from "../Assets/Projects/simon/photoWCaption.png";
+import simonGallery from "../Assets/Projects/simon/gallery.png";
+import simonGalleryOverview from "../Assets/Projects/simon/galleryOverview.png";
 
 const projectData = [
+  {
+    projectTitle: "Simon Eychenne",
+    projectBio:
+      "Simon Eychenne, a talented young photographer from Toulouse in the South of France, entrusted me with the task of crafting his portfolio website. Inspired by his vivid color palettes and captivating landscapes, I set out to create a digital showcase that would perfectly complement his artistic vision.",
+    projectHeroImg: simonHero,
+    projectWebsite: "www.simoneychenne.com",
+    projectStack:
+      "Nextjs, Typescript, TailwindCSS, Threejs, React-three-fiber, Gsap, Framer-motion, Figma",
+    mainData: [
+      {
+        legende:
+          "I usually set a smooth-scroll using directly framer-motion but this time I decided to implement one of the most used smoothScroll library : locomotive-scroll. It was a great opportunity to learn how to use it and to understand how it.",
+        figure: photoWCaption,
+      },
+      {
+        legende:
+          "I harnessed the power of custom threeJS shaders to introduce captivating and innovative effects into the website. Leveraging this technology, I applied captivating distortions to both the hero image and the footer image. This experience was not only enjoyable but also inspiring, fueling my enthusiasm to incorporate it extensively into my upcoming projects.",
+        figure: simonGallery,
+      },
+      {
+        legende:
+          "The second significant undertaking for the website involved crafting a seamless flip animation to transition between the classic gallery view and the overview state. To achieve this, I employed the GSAP flip plugin, which required extensive fine-tuning and dedicated study to ensure its smooth operation. It was a journey of persistence and experimentation before achieving the desired outcome.",
+        figure: simonGalleryOverview,
+      },
+    ],
+    conclusion:
+      "In conclusion, the Simon Eychenne portfolio project was a delightful journey in the world of web design and development. Collaborating with a talented young photographer, I created a website that beautifully showcased his vibrant photography, enhancing the visual experience for visitors. By implementing cutting-edge technologies such as threeJS custom shaders and GSAP animations, we brought captivating effects and seamless transitions to the site.",
+  },
   {
     projectTitle: "Avaa Architectes",
     projectBio:
