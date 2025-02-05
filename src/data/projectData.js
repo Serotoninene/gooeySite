@@ -68,7 +68,7 @@ const projectData = [
     projectBio:
       "Avaa is a young architecture agency from Arcachon in France. I took part in the project as a developer, taking care of threejs carousel on the homepage as well as the transition between the home and the project pages using barbajs.",
     projectHeroImg: avaaHero,
-    projectWebsite: "https://avaa-architectes.webflow.io/",
+    projectWebsite: "avaa-architectes.webflow.io/",
     projectStack: "Threejs, Barbajs, Gsap, Shader",
     mainData: [
       {

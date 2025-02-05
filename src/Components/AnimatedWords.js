@@ -1,4 +1,4 @@
-import React, { createRef, useCallback, useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 // gsap
 import gsap, { Power3 } from "gsap";
 // wouter
